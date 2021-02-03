@@ -2,6 +2,8 @@ import useStyles from "./appStyles";
 
 //Imported components
 import NavBar from "./components/NavBar/NavBar";
+import Sidebar from "./components/SideBar/Sidebar";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
     const classes = useStyles();
@@ -9,6 +11,8 @@ function App() {
     return (
         <div className={classes.app}>
             <NavBar />
+            <Sidebar />
+            <Dashboard />
         </div>
     );
 }

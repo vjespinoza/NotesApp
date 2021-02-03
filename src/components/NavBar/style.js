@@ -1,15 +1,14 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     navBar: {
         display: "flex",
         justifyContent: "space-between",
         width: "100%",
         height: 80,
-        background: "white",
+        zIndex: theme.zIndex.drawer + 1,
     },
-    iconColor: {
-        color: "#9c9c9c",
+    icon: {
         fontSize: 30,
     },
     navBarLeft: {
@@ -19,12 +18,10 @@ const useStyles = makeStyles({
     navBarCenter: {
         display: "flex",
         alignItems: "center",
+        width: "60%",
     },
     searchBar: {
-        border: "1px solid #9c9c9c",
-        outline: "none",
         borderRadius: 8,
-        boxShadow: "none",
     },
     navBarRight: {
         display: "flex",
@@ -32,11 +29,10 @@ const useStyles = makeStyles({
     },
     logo: {
         marginLeft: 20,
-        color: "#9c9c9c",
-        "& focus": {
-            color: " red",
-        },
     },
-});
+    avatar: {
+        marginLeft: 20,
+    },
+}));
 
 export default useStyles;
