@@ -11,39 +11,41 @@ import {
     CssBaseline,
 } from "@material-ui/core";
 //Import icons from Material UI
-import NoteOutlinedIcon from "@material-ui/icons/NoteOutlined";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
-import LabelOutlinedIcon from "@material-ui/icons/LabelOutlined";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
-import MoveToInboxOutlinedIcon from "@material-ui/icons/MoveToInboxOutlined";
-import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import {
+    NoteOutlined,
+    NotificationsNone,
+    LabelOutlined,
+    EditOutlined,
+    MoveToInboxOutlined,
+    DeleteOutlined,
+} from "@material-ui/icons";
 
 const Sidebar = () => {
     const classes = useStyles();
     const sideBarItems = [
         {
             text: "notes",
-            icon: <NoteOutlinedIcon />,
+            icon: <NoteOutlined />,
         },
         {
             text: "reminders",
-            icon: <NotificationsNoneIcon />,
+            icon: <NotificationsNone />,
         },
         {
             text: "tags",
-            icon: <LabelOutlinedIcon />,
+            icon: <LabelOutlined />,
         },
         {
             text: "edit tags",
-            icon: <EditOutlinedIcon />,
+            icon: <EditOutlined />,
         },
         {
             text: "filed notes",
-            icon: <MoveToInboxOutlinedIcon />,
+            icon: <MoveToInboxOutlined />,
         },
         {
             text: "trash",
-            icon: <DeleteOutlinedIcon />,
+            icon: <DeleteOutlined />,
         },
     ];
 

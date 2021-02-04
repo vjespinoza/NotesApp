@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         width: "60%",
     },
     searchBar: {
-        borderRadius: 8,
+        backgroundColor: "rgba(255,255,255,0.8)",
     },
     navBarRight: {
         display: "flex",

@@ -8,16 +8,26 @@ const useStyles = makeStyles({
         marginTop: 80,
         width: "calc(100vw - 240px)",
         height: "100%",
+        overflow: "scroll",
     },
-    dashboardContainer: {
+    createNoteContainer: {
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        height: "100%",
+        height: "auto",
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        overflow: "scroll",
+    },
+    notesListContainer: {
+        display: "flex",
+        flexFlow: "row wrap",
+        gap: "1vw",
+        width: "80%",
+        height: "auto",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
     },
 });
 

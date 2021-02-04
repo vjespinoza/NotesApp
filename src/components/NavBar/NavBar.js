@@ -29,7 +29,7 @@ const NavBar = () => {
                 <Grid className={classes.navBarCenter}>
                     <TextField
                         fullWidth
-                        color="secondary"
+                        color="primary"
                         size="small"
                         label="Search notes, reminders or tags..."
                         id="outlined-basic"
