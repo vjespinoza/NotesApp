@@ -15,6 +15,12 @@ const theme = createMuiTheme({
             dark: "#a2a3a3",
             contrastText: "#333333",
         },
+        text: {
+            primary: "rgba(0, 0, 0, 0.54)",
+        },
+    },
+    icons: {
+        cursor: "pointer",
     },
 });
 

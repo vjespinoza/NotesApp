@@ -6,9 +6,10 @@ const useStyles = makeStyles({
         top: 0,
         right: 0,
         marginTop: 80,
+        paddingBottom: 50,
         width: "calc(100vw - 240px)",
-        height: "100%",
-        overflow: "scroll",
+        height: "calc(100% - 80px)",
+        overflow: "auto",
     },
     createNoteContainer: {
         display: "flex",
@@ -20,14 +21,10 @@ const useStyles = makeStyles({
         textAlign: "center",
     },
     notesListContainer: {
-        display: "flex",
-        flexFlow: "row wrap",
+        columns: "4 225px",
         gap: "1vw",
         width: "80%",
-        height: "auto",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
+        height: "fit-content",
     },
 });
 

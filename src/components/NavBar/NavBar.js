@@ -1,6 +1,5 @@
 import React from "react";
-import MenuIcon from "@material-ui/icons/Menu";
-import ViewListIcon from "@material-ui/icons/ViewList";
+import { Menu, ViewAgendaOutlined } from "@material-ui/icons";
 import profilePic from "../../assets/profile.jpg";
 
 //Imported styles
@@ -10,7 +9,7 @@ import {
     Typography,
     Container,
     Grid,
-    TextField,
+    InputBase,
     Avatar,
 } from "@material-ui/core";
 
@@ -21,24 +20,27 @@ const NavBar = () => {
         <AppBar position="fixed" color="primary">
             <Container className={classes.navBar}>
                 <Grid className={classes.navBarLeft}>
-                    <MenuIcon className={classes.icon}></MenuIcon>
+                    <Menu cursor="pointer" className={classes.icon}></Menu>
                     <Typography className={classes.logo} variant="h4">
                         NotesApp
                     </Typography>
                 </Grid>
                 <Grid className={classes.navBarCenter}>
-                    <TextField
+                    <InputBase
                         fullWidth
                         color="primary"
                         size="small"
-                        label="Search notes, reminders or tags..."
+                        placeholder="Search notes, reminders or tags..."
                         id="outlined-basic"
                         variant="filled"
                         className={classes.searchBar}
-                    ></TextField>
+                    ></InputBase>
                 </Grid>
                 <Grid className={classes.navBarRight}>
-                    <ViewListIcon className={classes.icon}></ViewListIcon>
+                    <ViewAgendaOutlined
+                        cursor="pointer"
+                        className={classes.icon}
+                    ></ViewAgendaOutlined>
                     <Avatar
                         className={classes.avatar}
                         alt="Victor Espinoza"

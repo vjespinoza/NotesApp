@@ -39,6 +39,31 @@ const Dashboard = () => {
                 <Note randomTextGenerator={randomTextGenerator} />
                 <Note randomTextGenerator={randomTextGenerator} />
                 <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
+                <Note randomTextGenerator={randomTextGenerator} />
             </Container>
         </main>
     );

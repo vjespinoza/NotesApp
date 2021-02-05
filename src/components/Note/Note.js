@@ -6,6 +6,7 @@ import { Card, Typography, Container } from "@material-ui/core";
 
 const Note = (props) => {
     const classes = useStyles();
+
     return (
         <Card variant="outlined" className={classes.note}>
             <Container>
