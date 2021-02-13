@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     },
     drawerPaper: {
         width: drawerWidth,
-        marginTop: 80,
+        marginTop: 60,
         zIndex: 0,
     },
     drawerContainer: {

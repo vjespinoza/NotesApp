@@ -5,7 +5,7 @@ const useStyles = makeStyles({
         position: "fixed",
         top: 0,
         right: 0,
-        marginTop: 80,
+        marginTop: 60,
         paddingBottom: 50,
         width: "calc(100vw - 240px)",
         height: "calc(100% - 80px)",

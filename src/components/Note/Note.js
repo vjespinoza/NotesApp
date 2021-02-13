@@ -15,7 +15,7 @@ const Note = (props) => {
                     align="left"
                     variant="h6"
                 >
-                    Title
+                    Title {props.count}
                 </Typography>
             </Container>
             <Container>
