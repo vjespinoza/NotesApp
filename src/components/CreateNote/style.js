@@ -6,21 +6,45 @@ const useStyles = makeStyles({
         width: "40vw",
         margin: "50px auto 70px auto",
         padding: "5px 12px",
-    },
-    createNoteInputs: {
-        display: "block",
-        outline: "unset",
-        "&:nth-child(2)": {
-            marginTop: "10px",
-            height: "fit-content",
+        "&:focus-within": {
+            "& #toggleTitleDisplay": {
+                display: "flex",
+            },
+            "& #toggleFooterDisplay": {
+                display: "flex",
+            },
         },
     },
+    focusHighlight: {
+        "&:hover": {
+            cursor: "default",
+            background: "transparent",
+        },
+    },
+    noteTitle: {
+        display: "none",
+    },
+    createNoteInput1: {
+        display: "block",
+        outline: "unset",
+        height: "fit-content",
+        fontWeight: "bold",
+    },
+    createNoteInput2: {
+        display: "block",
+        outline: "unset",
+        height: "fit-content",
+        marginTop: "10px",
+    },
     createNoteFooter: {
-        display: "flex",
+        display: "none",
+        transition: "transform 300ms ease",
+        transformOrigin: "top",
         justifyContent: "space-between",
         alignContent: "center",
         height: "1.9rem",
         marginTop: 10,
+        padding: 0,
     },
     createNoteIcons: {
         display: "flex",

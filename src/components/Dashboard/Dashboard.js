@@ -1,11 +1,6 @@
 import React from "react";
 import useStyles from "./style";
 import { Container } from "@material-ui/core";
-import {
-    fourColumnLayout,
-    threeColumnLayout,
-    twoColumnLayout,
-} from "../../utilities/dashboardLayout";
 
 //Imported components
 import Note from "../Note/Note";
@@ -41,25 +36,6 @@ const Dashboard = () => {
 
     randomTextGenerator();
     //Temp functions - END
-
-    console.log(fourColumnLayout());
-    console.log(threeColumnLayout());
-    console.log(twoColumnLayout());
-    // const noteList = document.getElementsByClassName("makeStyles-note-23");
-    // console.log(noteList);
-
-    // window.addEventListener("resize", () => {
-    //     const noteList = document.getElementById("noteList");
-    //     console.log(noteList.clientWidth);
-    //     if (noteList.clientWidth >= 1024) {
-    //         console.log(twoColumnLayout());
-    //     } else if (
-    //         noteList.clientWidth >= 728 &&
-    //         noteList.clientWidth <= 1023
-    //     ) {
-    //         console.log(fourColumnLayout());
-    //     }
-    // });
 
     return (
         <main className={classes.dashboardPosition}>
