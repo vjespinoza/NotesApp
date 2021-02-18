@@ -7,6 +7,7 @@ const useStyles = makeStyles({
         margin: "50px auto 70px auto",
         padding: "5px 12px",
         "&:focus-within": {
+            padding: "10px 12px",
             "& #toggleTitleDisplay": {
                 display: "flex",
             },
@@ -16,9 +17,15 @@ const useStyles = makeStyles({
         },
     },
     focusHighlight: {
+        cursor: "default",
+        backgroundColor: "transparent",
+        background: "transparent",
+        color: "transparent",
         "&:hover": {
             cursor: "default",
+            backgroundColor: "transparent",
             background: "transparent",
+            color: "transparent",
         },
     },
     noteTitle: {
@@ -49,11 +56,13 @@ const useStyles = makeStyles({
     createNoteIcons: {
         display: "flex",
         justifyItems: "space-between",
+        alignItems: "center",
     },
     closeCreateNote: {
         fontSize: 12,
     },
     iconItem: {
+        display: "block",
         padding: 0,
         width: 20,
         marginRight: "2rem",
