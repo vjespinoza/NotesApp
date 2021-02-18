@@ -1,54 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./style";
 import { Container } from "@material-ui/core";
 
 //Imported components
-import Note from "../Note/Note";
+// import Note from "../Note/Note";
 import CreateNote from "../CreateNote/CreateNote";
 
 const Dashboard = () => {
     const classes = useStyles();
-
-    //Temp functions
-    const randomTextGenerator = () => {
-        const textString =
-            "Aenean molestie urna quis libero suscipit, quis lacinia odio tincidunt. Morbi nec consectetur est, ut consequat nulla. Duis accumsan facilisis nisl, sed efficitur turpis dapibus id. Nullam tincidunt est a lorem posuere facilisis. Duis tristique nec ante vitae malesuada. Phasellus aliquam felis a dolor ultrices, sed viverra quam elementum. Sed aliquet, odio a tempus luctus, sem tortor venenatis nibh, ut ultricies magna metus eget velit. Mauris lacinia eget justo nec molestie.           ";
-
-        const randomIndex = Math.floor(Math.random() * textString.length);
-
-        const randomText = textString.slice(randomIndex, textString.length);
-
-        return randomText;
-    };
-
-    const notesQty = 40;
-    const notesArr = [];
-
-    for (let i = 0; i < notesQty; i++) {
-        notesArr.push(
-            <Note
-                key={i}
-                count={i + 1}
-                randomTextGenerator={randomTextGenerator}
-            />
-        );
-    }
-
-    randomTextGenerator();
-    //Temp functions - END
+    const [note, setNote] = useState({
+        id: 0,
+        title: "",
+        content: "",
+        timeStamp: "",
+        reminder: false,
+        color: "",
+        archived: false,
+        tags: [],
+    });
+    const [noteList, setNoteList] = useState([]);
 
     return (
         <main className={classes.dashboardPosition}>
             <Container color="primary" className={classes.createNoteContainer}>
-                <CreateNote />
+                <CreateNote
+                    note={note}
+                    setNote={setNote}
+                    noteList={noteList}
+                    setNoteList={setNoteList}
+                />
             </Container>
             <Container
                 color="primary"
                 id="noteList"
                 className={classes.notesListContainer}
-            >
-                {notesArr}
-            </Container>
+            ></Container>
         </main>
     );
 };

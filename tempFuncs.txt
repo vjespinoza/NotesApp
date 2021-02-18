@@ -1,0 +1,28 @@
+//From Dashboard 
+//Temp functions
+    const randomTextGenerator = () => {
+        const textString =
+            "Aenean molestie urna quis libero suscipit, quis lacinia odio tincidunt. Morbi nec consectetur est, ut consequat nulla. Duis accumsan facilisis nisl, sed efficitur turpis dapibus id. Nullam tincidunt est a lorem posuere facilisis. Duis tristique nec ante vitae malesuada. Phasellus aliquam felis a dolor ultrices, sed viverra quam elementum. Sed aliquet, odio a tempus luctus, sem tortor venenatis nibh, ut ultricies magna metus eget velit. Mauris lacinia eget justo nec molestie.           ";
+
+        const randomIndex = Math.floor(Math.random() * textString.length);
+
+        const randomText = textString.slice(randomIndex, textString.length);
+
+        return randomText;
+    };
+
+    const notesQty = 40;
+    const notesArr = [];
+
+    for (let i = 0; i < notesQty; i++) {
+        notesArr.push(
+            <Note
+                key={i}
+                count={i + 1}
+                randomTextGenerator={randomTextGenerator}
+            />
+        );
+    }
+
+    randomTextGenerator();
+    //Temp functions - END

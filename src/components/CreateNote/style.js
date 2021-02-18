@@ -29,7 +29,8 @@ const useStyles = makeStyles({
         },
     },
     noteTitle: {
-        display: "none",
+        // display: "none",
+        display: "flex",
     },
     createNoteInput1: {
         display: "block",
@@ -44,7 +45,8 @@ const useStyles = makeStyles({
         marginTop: "10px",
     },
     createNoteFooter: {
-        display: "none",
+        // display: "none",
+        display: "flex",
         transition: "transform 300ms ease",
         transformOrigin: "top",
         justifyContent: "space-between",
@@ -57,6 +59,13 @@ const useStyles = makeStyles({
         display: "flex",
         justifyItems: "space-between",
         alignItems: "center",
+        "& span": {
+            display: "none",
+        },
+        "& span:hover": {
+            // display: "none",
+            background: "yellow",
+        },
     },
     closeCreateNote: {
         fontSize: 12,
