@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useStyles from "./style";
 import {
     Card,
@@ -9,58 +9,16 @@ import {
     ListItemIcon,
     Button,
 } from "@material-ui/core";
-import {
-    NotificationsNone,
-    NotificationsActiveOutlined,
-    PaletteOutlined,
-    MoveToInboxOutlined,
-    LabelOutlined,
-} from "@material-ui/icons";
 
-const CreateNote = ({ note, setNote, noteList, setNoteList }) => {
+const CreateNote = ({
+    notes,
+    createNoteIcons,
+    noteReminder,
+    handleChange,
+    addNoteHandler,
+}) => {
     const classes = useStyles();
 
-    const createNoteIcons = [
-        {
-            name: "alert",
-            icon:
-                note.reminder === true ? (
-                    <NotificationsActiveOutlined />
-                ) : (
-                    <NotificationsNone />
-                ),
-        },
-        { name: "color", icon: <PaletteOutlined /> },
-        { name: "archive", icon: <MoveToInboxOutlined /> },
-        { name: "tag", icon: <LabelOutlined /> },
-    ];
-
-    const noteReminder = (e) => {
-        if (e.currentTarget.getAttribute("name") === "alert") {
-            setNote({
-                ...note,
-                reminder: note.reminder === true ? false : true,
-            });
-        }
-    };
-
-    const handleChange = (e) => {
-        const { value, name } = e.target;
-        setNote({ ...note, [name]: value });
-    };
-
-    const handleClick = () => {
-        setNote({
-            ...note,
-            id: noteList.length + 1,
-            timeStamp: Date.now(),
-            reminder: true,
-            color: "white",
-            archived: true,
-            tags: ["tagggg"],
-        });
-    };
-    console.log(note);
     return (
         <Card className={classes.createNoteWrapper}>
             <div className={classes.noteTitle} id="toggleTitleDisplay">
@@ -69,7 +27,7 @@ const CreateNote = ({ note, setNote, noteList, setNoteList }) => {
                     className={classes.createNoteInput1}
                     placeholder="Title..."
                     variant="outlined"
-                    value={note.value}
+                    value={notes.value}
                     onChange={handleChange}
                 ></InputBase>
             </div>
@@ -79,6 +37,7 @@ const CreateNote = ({ note, setNote, noteList, setNoteList }) => {
                 placeholder="Add a new note..."
                 variant="outlined"
                 multiline={true}
+                value={notes.value}
                 onChange={handleChange}
             ></InputBase>
             <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
@@ -104,7 +63,7 @@ const CreateNote = ({ note, setNote, noteList, setNoteList }) => {
                     </List>
                 </CardActionArea>
                 <Button
-                    onClick={handleClick}
+                    onClick={addNoteHandler}
                     className={classes.closeCreateNote}
                 >
                     Close
