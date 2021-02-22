@@ -6,8 +6,6 @@ import useStyles from "./style";
 const NotesList = ({ notes }) => {
     const classes = useStyles();
 
-    console.log(notes);
-
     if (notes.length > 0) {
         return (
             <Container className={classes.notesListContainer}>
