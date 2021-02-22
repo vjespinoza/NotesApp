@@ -8,10 +8,18 @@ import {
     LabelOutlined,
 } from "@material-ui/icons";
 
-const CreateNoteContainer = ({ notes, setNotes }) => {
+const CreateNoteContainer = ({ notes, setNotes, noteAlert, setNoteAlert }) => {
     //CreateNote footer icons
     const createNoteIcons = [
-        { name: "alert", icon: <NotificationsNone /> },
+        {
+            name: "alert",
+            icon:
+                notes.reminder === true ? (
+                    <NotificationsActiveOutlined />
+                ) : (
+                    <NotificationsNone />
+                ),
+        },
         { name: "color", icon: <PaletteOutlined /> },
         { name: "archive", icon: <MoveToInboxOutlined /> },
         { name: "tag", icon: <LabelOutlined /> },
@@ -29,29 +37,36 @@ const CreateNoteContainer = ({ notes, setNotes }) => {
     const noteTimestamp = () => {
         return Date.now();
     };
+    const toggleAlert = (e) => {
+        if (e.currentTarget.getAttribute("name") === "alert") {
+            console.log("alert");
+            setNoteAlert((noteAlert) => !noteAlert);
+        }
+    };
+    const noteReminder = () => {
+        const active = noteAlert;
+        console.log(active);
+        if (active) {
+            return "later";
+        } else {
+            return "now";
+        }
+    };
     const noteColor = () => {};
     const noteArchived = () => {};
     const noteTags = () => {};
 
-    const noteReminder = () => {
-        if (document.getElementsByName("name")[0] === "alert") {
-            return notes.reminder === true ? false : true;
-        }
-    };
-
     const addNoteHandler = () => {
-        if (notes.length > 0) {
-            setNotes([
-                ...notes,
-                {
-                    id: noteId(),
-                    title: noteTitle(),
-                    content: noteContent(),
-                    reminder: noteReminder(),
-                },
-            ]);
-        }
-        console.log(notes);
+        setNotes([
+            ...notes,
+            {
+                id: noteId(),
+                title: noteTitle(),
+                content: noteContent(),
+                timestamp: noteTimestamp(),
+                reminder: { active: noteAlert, time: noteReminder() },
+            },
+        ]);
     };
 
     return (
@@ -62,6 +77,7 @@ const CreateNoteContainer = ({ notes, setNotes }) => {
             addNoteHandler={addNoteHandler}
             noteTitle={noteTitle}
             noteContent={noteContent}
+            toggleAlert={toggleAlert}
         />
     );
 };

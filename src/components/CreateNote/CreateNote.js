@@ -14,6 +14,7 @@ const CreateNote = ({
     notes,
     createNoteIcons,
     noteReminder,
+    toggleAlert,
     addNoteHandler,
     noteTitle,
     noteContent,
@@ -53,7 +54,7 @@ const CreateNote = ({
                                 disableRipple={true}
                                 className={classes.iconItem}
                                 key={index}
-                                onClick={noteReminder}
+                                onClick={toggleAlert}
                                 name={icon.name}
                             >
                                 <ListItemIcon className={classes.icon}>
