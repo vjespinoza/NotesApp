@@ -3,14 +3,15 @@ import useStyles from "./style";
 import { Container } from "@material-ui/core";
 
 //Imported components
-import Note from "../Note/Note";
-import CreateNote from "../CreateNote/CreateNote";
+import NotesList from "../NotesList/NotesList";
 import CreateNoteContainer from "../CreateNote/CreateNoteContainer";
 
 const Dashboard = () => {
     const classes = useStyles();
+
     const [notes, setNotes] = useState([]);
     const [noteAlert, setNoteAlert] = useState(false);
+    const [noteBgColor, setNoteBgColor] = useState("ffffff");
 
     return (
         <main className={classes.dashboardPosition}>
@@ -20,13 +21,11 @@ const Dashboard = () => {
                     setNotes={setNotes}
                     noteAlert={noteAlert}
                     setNoteAlert={setNoteAlert}
+                    noteBgColor={noteBgColor}
+                    setNoteBgColor={setNoteBgColor}
                 />
             </Container>
-            <Container
-                color="primary"
-                id="noteList"
-                className={classes.notesListContainer}
-            ></Container>
+            <NotesList notes={notes} />
         </main>
     );
 };

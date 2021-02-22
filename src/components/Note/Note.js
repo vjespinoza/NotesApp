@@ -4,10 +4,13 @@ import useStyles from "./style";
 //Imported components from Material UI
 import { Card, Typography, Container } from "@material-ui/core";
 
-const Note = () => {
+const Note = ({ title, content }) => {
     const classes = useStyles();
 
+    console.log(title);
+
     return (
+        // <div></div>
         <Card variant="outlined" className={classes.note}>
             <Container>
                 <Typography
@@ -15,12 +18,12 @@ const Note = () => {
                     align="left"
                     variant="h6"
                 >
-                    {/* Title {props.count} */}
+                    {title}
                 </Typography>
             </Container>
             <Container>
                 <Typography className={classes.noteContent} align="left">
-                    {/* {props.randomTextGenerator()} */}
+                    {content}
                 </Typography>
             </Container>
         </Card>

@@ -13,7 +13,6 @@ import {
 const CreateNote = ({
     notes,
     createNoteIcons,
-    noteReminder,
     toggleAlert,
     addNoteHandler,
     noteTitle,

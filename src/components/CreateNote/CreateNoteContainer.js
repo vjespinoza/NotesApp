@@ -8,23 +8,14 @@ import {
     LabelOutlined,
 } from "@material-ui/icons";
 
-const CreateNoteContainer = ({ notes, setNotes, noteAlert, setNoteAlert }) => {
-    //CreateNote footer icons
-    const createNoteIcons = [
-        {
-            name: "alert",
-            icon:
-                notes.reminder === true ? (
-                    <NotificationsActiveOutlined />
-                ) : (
-                    <NotificationsNone />
-                ),
-        },
-        { name: "color", icon: <PaletteOutlined /> },
-        { name: "archive", icon: <MoveToInboxOutlined /> },
-        { name: "tag", icon: <LabelOutlined /> },
-    ];
-
+const CreateNoteContainer = ({
+    notes,
+    setNotes,
+    noteAlert,
+    setNoteAlert,
+    noteBgColor,
+    setNoteBgColor,
+}) => {
     const noteId = () => {
         return notes.length + 1;
     };
@@ -39,13 +30,11 @@ const CreateNoteContainer = ({ notes, setNotes, noteAlert, setNoteAlert }) => {
     };
     const toggleAlert = (e) => {
         if (e.currentTarget.getAttribute("name") === "alert") {
-            console.log("alert");
             setNoteAlert((noteAlert) => !noteAlert);
         }
     };
     const noteReminder = () => {
         const active = noteAlert;
-        console.log(active);
         if (active) {
             return "later";
         } else {
@@ -68,6 +57,21 @@ const CreateNoteContainer = ({ notes, setNotes, noteAlert, setNoteAlert }) => {
             },
         ]);
     };
+    //CreateNote footer icons
+    const createNoteIcons = [
+        {
+            name: "alert",
+            icon:
+                noteAlert === true ? (
+                    <NotificationsActiveOutlined />
+                ) : (
+                    <NotificationsNone />
+                ),
+        },
+        { name: "color", icon: <PaletteOutlined /> },
+        { name: "archive", icon: <MoveToInboxOutlined /> },
+        { name: "tag", icon: <LabelOutlined /> },
+    ];
 
     return (
         <CreateNote

@@ -20,12 +20,6 @@ const useStyles = makeStyles({
         alignItems: "center",
         textAlign: "center",
     },
-    notesListContainer: {
-        columns: "4 225px",
-        gap: "1vw",
-        width: "80%",
-        height: "fit-content",
-    },
 });
 
 export default useStyles;
