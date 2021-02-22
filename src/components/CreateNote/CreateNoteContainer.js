@@ -8,67 +8,50 @@ import {
     LabelOutlined,
 } from "@material-ui/icons";
 
-const CreateNoteContainer = ({ notes, setNotes, notesList, setNotesList }) => {
-    // const newNote = {
-    //     id: notes.length + 1,
-    //     title: "",
-    //     content: "",
-    //     timeStamp: Date.now(),
-    //     reminder: false,
-    //     color: "",
-    //     archived: false,
-    //     tags: [],
-    // };
-
+const CreateNoteContainer = ({ notes, setNotes }) => {
+    //CreateNote footer icons
     const createNoteIcons = [
-        {
-            name: "alert",
-            icon:
-                notes.reminder === true ? (
-                    <NotificationsActiveOutlined />
-                ) : (
-                    <NotificationsNone />
-                ),
-        },
+        { name: "alert", icon: <NotificationsNone /> },
         { name: "color", icon: <PaletteOutlined /> },
         { name: "archive", icon: <MoveToInboxOutlined /> },
         { name: "tag", icon: <LabelOutlined /> },
     ];
 
-    const addNoteHandler = () => {
-        setNotes({ notes });
-        // setNotesList([notes]);
-        console.log(notes);
-        // console.log(notesList);
+    const noteId = () => {
+        return notes.length + 1;
     };
+    const noteTitle = () => {
+        return document.getElementsByName("title")[0].value;
+    };
+    const noteContent = () => {
+        return document.getElementsByName("content")[0].value;
+    };
+    const noteTimestamp = () => {
+        return Date.now();
+    };
+    const noteColor = () => {};
+    const noteArchived = () => {};
+    const noteTags = () => {};
 
-    const colorPalette = [
-        "#ffffff",
-        "#f28b82",
-        "#fbbc04",
-        "#fff475",
-        "#ccff90",
-        "#a7ffeb",
-        "#cbf0f8",
-        "#aecbfa",
-        "#d7aefb",
-        "#fdcfe8",
-        "#e6c9a8",
-        "#e8eaed",
-    ];
-
-    const noteReminder = (e) => {
-        if (e.currentTarget.getAttribute("name") === "alert") {
-            setNotes({
-                ...notes,
-                reminder: notes.reminder === true ? false : true,
-            });
+    const noteReminder = () => {
+        if (document.getElementsByName("name")[0] === "alert") {
+            return notes.reminder === true ? false : true;
         }
     };
 
-    const handleChange = (e) => {
-        const { value, name } = e.target;
-        setNotes({ ...notes, [name]: value });
+    const addNoteHandler = () => {
+        if (notes.length > 0) {
+            setNotes([
+                ...notes,
+                {
+                    id: noteId(),
+                    title: noteTitle(),
+                    content: noteContent(),
+                    reminder: noteReminder(),
+                },
+            ]);
+        }
+        console.log(notes);
     };
 
     return (
@@ -76,8 +59,9 @@ const CreateNoteContainer = ({ notes, setNotes, notesList, setNotesList }) => {
             notes={notes}
             createNoteIcons={createNoteIcons}
             noteReminder={noteReminder}
-            handleChange={handleChange}
             addNoteHandler={addNoteHandler}
+            noteTitle={noteTitle}
+            noteContent={noteContent}
         />
     );
 };

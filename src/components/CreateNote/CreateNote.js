@@ -14,8 +14,9 @@ const CreateNote = ({
     notes,
     createNoteIcons,
     noteReminder,
-    handleChange,
     addNoteHandler,
+    noteTitle,
+    noteContent,
 }) => {
     const classes = useStyles();
 
@@ -28,7 +29,7 @@ const CreateNote = ({
                     placeholder="Title..."
                     variant="outlined"
                     value={notes.value}
-                    onChange={handleChange}
+                    onChange={noteTitle}
                 ></InputBase>
             </div>
             <InputBase
@@ -38,7 +39,7 @@ const CreateNote = ({
                 variant="outlined"
                 multiline={true}
                 value={notes.value}
-                onChange={handleChange}
+                onChange={noteContent}
             ></InputBase>
             <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
                 <CardActionArea
