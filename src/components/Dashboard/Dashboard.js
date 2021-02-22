@@ -9,14 +9,21 @@ import CreateNoteContainer from "../CreateNote/CreateNoteContainer";
 
 const Dashboard = () => {
     const classes = useStyles();
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState([{}]);
+    const [notesList, setNotesList] = useState([]);
 
-    console.log(notes);
+    // console.log(notes);
+    // console.log(notesList);
 
     return (
         <main className={classes.dashboardPosition}>
             <Container color="primary" className={classes.createNoteContainer}>
-                <CreateNoteContainer notes={notes} setNotes={setNotes} />
+                <CreateNoteContainer
+                    notes={notes}
+                    setNotes={setNotes}
+                    notesList={notesList}
+                    setNotesList={setNotesList}
+                />
             </Container>
             <Container
                 color="primary"

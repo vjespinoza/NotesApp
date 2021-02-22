@@ -8,22 +8,17 @@ import {
     LabelOutlined,
 } from "@material-ui/icons";
 
-const CreateNoteContainer = ({ notes, setNotes }) => {
-    const newNote = {
-        id: notes.length + 1,
-        title: "",
-        content: "",
-        timeStamp: Date.now(),
-        reminder: false,
-        color: "",
-        archived: false,
-        tags: [],
-    };
-
-    const addNoteHandler = () => {
-        setNotes([{ ...notes, newNote }]);
-        console.log(notes);
-    };
+const CreateNoteContainer = ({ notes, setNotes, notesList, setNotesList }) => {
+    // const newNote = {
+    //     id: notes.length + 1,
+    //     title: "",
+    //     content: "",
+    //     timeStamp: Date.now(),
+    //     reminder: false,
+    //     color: "",
+    //     archived: false,
+    //     tags: [],
+    // };
 
     const createNoteIcons = [
         {
@@ -39,6 +34,13 @@ const CreateNoteContainer = ({ notes, setNotes }) => {
         { name: "archive", icon: <MoveToInboxOutlined /> },
         { name: "tag", icon: <LabelOutlined /> },
     ];
+
+    const addNoteHandler = () => {
+        setNotes({ notes });
+        // setNotesList([notes]);
+        console.log(notes);
+        // console.log(notesList);
+    };
 
     const colorPalette = [
         "#ffffff",
