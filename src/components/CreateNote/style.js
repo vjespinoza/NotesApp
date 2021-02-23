@@ -1,8 +1,13 @@
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
+    relPosition: {
+        position: "relative",
+    },
     createNoteWrapper: {
         display: "block",
+        position: "relative",
+        zIndex: 1,
         width: "40vw",
         margin: "50px auto 70px auto",
         padding: "5px 12px",
