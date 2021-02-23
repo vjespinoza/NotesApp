@@ -46,16 +46,21 @@ const CreateNoteContainer = ({
     const noteTags = () => {};
 
     const addNoteHandler = () => {
-        setNotes([
-            ...notes,
-            {
-                id: noteId(),
-                title: noteTitle(),
-                content: noteContent(),
-                timestamp: noteTimestamp(),
-                reminder: { active: noteAlert, time: noteReminder() },
-            },
-        ]);
+        if (noteTitle() !== "" || noteContent() !== "") {
+            setNotes([
+                ...notes,
+                {
+                    id: noteId(),
+                    title: noteTitle(),
+                    content: noteContent(),
+                    timestamp: noteTimestamp(),
+                    reminder: { active: noteAlert, time: noteReminder() },
+                },
+            ]);
+        }
+        document.getElementsByName("title")[0].value = "";
+        document.getElementsByName("content")[0].value = "";
+        setNoteAlert(false);
     };
     //CreateNote footer icons
     const createNoteIcons = [
