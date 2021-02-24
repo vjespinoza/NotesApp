@@ -12,6 +12,7 @@ const NotesList = ({ notes }) => {
                 {notes.map((note, index) => {
                     return (
                         <Note
+                            notes={notes}
                             key={index}
                             title={note.title}
                             content={note.content}

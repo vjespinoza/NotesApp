@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     reminderForm: {
-        display: "flex",
+        display: "none",
         flexDirection: "column",
         width: "10rem",
         height: "fit-content",

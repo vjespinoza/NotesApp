@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useStyles from "./style";
 import { Container } from "@material-ui/core";
 
@@ -6,18 +6,15 @@ import { Container } from "@material-ui/core";
 import NotesList from "../NotesList/NotesList";
 import CreateNoteContainer from "../CreateNote/CreateNoteContainer";
 
-const Dashboard = () => {
+const Dashboard = ({
+    notes,
+    setNotes,
+    noteAlert,
+    setNoteAlert,
+    noteBgColor,
+    setNoteBgColor,
+}) => {
     const classes = useStyles();
-
-    const [notes, setNotes] = useState(
-        localStorage.notes ? JSON.parse(localStorage.notes) : []
-    );
-    const [noteAlert, setNoteAlert] = useState(false);
-    const [noteBgColor, setNoteBgColor] = useState("ffffff");
-
-    useEffect(() => {
-        localStorage.setItem("notes", JSON.stringify(notes));
-    }, [notes]);
 
     return (
         <main className={classes.dashboardPosition}>

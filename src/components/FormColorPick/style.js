@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     colorForm: {
-        display: "flex",
+        display: "none",
         flexDirection: "column",
         width: "15.5rem",
         height: "fit-content",

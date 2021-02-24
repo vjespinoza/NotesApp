@@ -29,7 +29,7 @@ const FormColor = () => {
     ];
 
     return (
-        <Card className={classes.colorForm}>
+        <Card id="formColor" className={classes.colorForm}>
             <Typography className={classes.formTitle} variant="h3">
                 Colors:
             </Typography>

@@ -8,7 +8,7 @@ import {
     Button,
 } from "@material-ui/core";
 
-const FormReminder = () => {
+const FormReminder = ({ toggleAlert }) => {
     const classes = useStyles();
 
     const defaultDate = () => {
@@ -40,7 +40,7 @@ const FormReminder = () => {
     };
 
     return (
-        <Card className={classes.reminderForm}>
+        <Card id="formReminder" className={classes.reminderForm}>
             <Typography className={classes.formTitle} variant="h3">
                 Reminder:
             </Typography>
@@ -48,6 +48,7 @@ const FormReminder = () => {
                 <Input
                     className={classes.input}
                     type="date"
+                    id="date"
                     defaultValue={defaultDate()}
                 ></Input>
             </FormControl>
@@ -55,10 +56,13 @@ const FormReminder = () => {
                 <Input
                     className={classes.input}
                     type="time"
+                    id="time"
                     defaultValue={defaultTime()}
                 ></Input>
             </FormControl>
-            <Button className={classes.confirmReminder}>Confirm</Button>
+            <Button onClick={toggleAlert} className={classes.confirmReminder}>
+                Confirm
+            </Button>
         </Card>
     );
 };

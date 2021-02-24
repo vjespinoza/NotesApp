@@ -22,6 +22,17 @@ const CreateNote = ({
 }) => {
     const classes = useStyles();
 
+    const openFormHandler = (e) => {
+        switch (e.currentTarget.getAttribute("name")) {
+            case "alert":
+                document.getElementById("formReminder").style.display = "flex";
+                break;
+            case "color":
+                document.getElementById("formColor").style.display = "flex";
+                break;
+        }
+    };
+
     return (
         <div className={classes.relPosition}>
             <Card className={classes.createNoteWrapper}>
@@ -59,8 +70,8 @@ const CreateNote = ({
                                     disableRipple={true}
                                     className={classes.iconItem}
                                     key={index}
-                                    onClick={toggleAlert}
                                     name={icon.name}
+                                    onClick={openFormHandler}
                                 >
                                     <ListItemIcon className={classes.icon}>
                                         {icon.icon}
@@ -77,8 +88,8 @@ const CreateNote = ({
                     </Button>
                 </div>
             </Card>
+            <FormReminder toggleAlert={toggleAlert} />
             <FormColor />
-            <FormReminder />
         </div>
     );
 };

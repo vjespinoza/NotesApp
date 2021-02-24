@@ -28,17 +28,27 @@ const CreateNoteContainer = ({
     const noteTimestamp = () => {
         return Date.now();
     };
-    const toggleAlert = (e) => {
-        if (e.currentTarget.getAttribute("name") === "alert") {
-            setNoteAlert((noteAlert) => !noteAlert);
-        }
+    const toggleAlert = () => {
+        document.getElementById("formReminder").style.display = "none";
+        return setNoteAlert((noteAlert) => !noteAlert);
     };
     const noteReminder = () => {
         const active = noteAlert;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
         if (active) {
-            return "later";
+            return {
+                active: active,
+                date: date,
+                time: time,
+            };
         } else {
-            return "now";
+            return {
+                active: active,
+                date: "",
+                time: "",
+            };
         }
     };
     const noteColor = () => {};
@@ -54,7 +64,7 @@ const CreateNoteContainer = ({
                     title: noteTitle(),
                     content: noteContent(),
                     timestamp: noteTimestamp(),
-                    reminder: { active: noteAlert, time: noteReminder() },
+                    reminder: noteReminder(),
                 },
             ]);
         }
@@ -64,15 +74,7 @@ const CreateNoteContainer = ({
     };
     //CreateNote footer icons
     const createNoteIcons = [
-        {
-            name: "alert",
-            icon:
-                noteAlert === true ? (
-                    <NotificationsActiveOutlined />
-                ) : (
-                    <NotificationsNone />
-                ),
-        },
+        { name: "alert", icon: <NotificationsNone /> },
         { name: "color", icon: <PaletteOutlined /> },
         { name: "archive", icon: <MoveToInboxOutlined /> },
         { name: "tag", icon: <LabelOutlined /> },

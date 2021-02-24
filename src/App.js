@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import useStyles from "./appStyles";
 
 //Imported components
@@ -8,11 +9,28 @@ import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
     const classes = useStyles();
 
+    const [notes, setNotes] = useState(
+        localStorage.notes ? JSON.parse(localStorage.notes) : []
+    );
+    const [noteAlert, setNoteAlert] = useState(false);
+    const [noteBgColor, setNoteBgColor] = useState("ffffff");
+
+    useEffect(() => {
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }, [notes]);
+
     return (
         <div className={classes.app}>
             <NavBar />
             <Sidebar />
-            <Dashboard />
+            <Dashboard
+                notes={notes}
+                setNotes={setNotes}
+                noteAlert={noteAlert}
+                setNoteAlert={setNoteAlert}
+                noteBgColor={noteBgColor}
+                setNoteBgColor={setNoteBgColor}
+            />
         </div>
     );
 }
