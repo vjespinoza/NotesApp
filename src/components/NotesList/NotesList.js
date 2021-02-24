@@ -1,6 +1,6 @@
 import React from "react";
 import Note from "../Note/Note";
-import { Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import useStyles from "./style";
 
 const NotesList = ({ notes }) => {
@@ -12,10 +12,11 @@ const NotesList = ({ notes }) => {
                 {notes.map((note, index) => {
                     return (
                         <Note
-                            notes={notes}
                             key={index}
                             title={note.title}
                             content={note.content}
+                            reminderDate={note.reminder.date}
+                            reminderTime={note.reminder.time}
                         />
                     );
                 })}

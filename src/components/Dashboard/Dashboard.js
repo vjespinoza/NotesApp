@@ -28,7 +28,7 @@ const Dashboard = ({
                     setNoteBgColor={setNoteBgColor}
                 />
             </Container>
-            <NotesList notes={notes} />
+            <NotesList notes={notes} noteAlert={noteAlert} />
         </main>
     );
 };

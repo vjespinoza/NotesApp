@@ -5,14 +5,20 @@ import useStyles from "./style";
 import { Card, Typography, Container, Chip } from "@material-ui/core";
 import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
 
-const Note = ({ title, content, notes }) => {
+const Note = ({ title, content, reminderDate, reminderTime }) => {
     const classes = useStyles();
 
-    const handleDelete = () => {
-        console.log("delete");
+    const handleDelete = (e) => {
+        console.log(e.target);
     };
 
-    console.log(notes);
+    const displayChip =
+        reminderDate === "" ? { display: "none" } : { display: "inline-flex" };
+
+    const d = new Date(reminderDate);
+    const month = d.toLocaleString("en", { month: "short" });
+    const day = reminderDate.slice(8);
+    const date = month + " " + day;
 
     return (
         <Card variant="outlined" className={classes.note}>
@@ -30,21 +36,15 @@ const Note = ({ title, content, notes }) => {
                     {content}
                 </Typography>
             </Container>
+
             <Container>
-                {notes.map((reminder, index) => {
-                    console.log(reminder.reminder.active);
-                    if (reminder.reminder.active) {
-                        return (
-                            <Chip
-                                key={index}
-                                icon={<NotificationsActiveOutlinedIcon />}
-                                size="small"
-                                onDelete={handleDelete}
-                                label={`${reminder.reminder.date}, ${reminder.reminder.time}`}
-                            ></Chip>
-                        );
-                    }
-                })}
+                <Chip
+                    style={displayChip}
+                    icon={<NotificationsActiveOutlinedIcon />}
+                    size="small"
+                    onDelete={handleDelete}
+                    label={`${date}, ${reminderTime}`}
+                ></Chip>
             </Container>
         </Card>
     );

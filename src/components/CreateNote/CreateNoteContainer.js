@@ -2,7 +2,6 @@ import React from "react";
 import CreateNote from "./CreateNote";
 import {
     NotificationsNone,
-    NotificationsActiveOutlined,
     PaletteOutlined,
     MoveToInboxOutlined,
     LabelOutlined,
@@ -51,9 +50,10 @@ const CreateNoteContainer = ({
             };
         }
     };
-    const noteColor = () => {};
-    const noteArchived = () => {};
-    const noteTags = () => {};
+
+    // const noteColor = () => {};
+    // const noteArchived = () => {};
+    // const noteTags = () => {};
 
     const addNoteHandler = () => {
         if (noteTitle() !== "" || noteContent() !== "") {
