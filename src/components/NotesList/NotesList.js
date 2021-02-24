@@ -13,6 +13,7 @@ const NotesList = ({ notes }) => {
                     return (
                         <Note
                             key={index}
+                            notes={notes}
                             title={note.title}
                             content={note.content}
                             reminderDate={note.reminder.date}

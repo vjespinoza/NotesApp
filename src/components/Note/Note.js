@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 //Imported styles
 import useStyles from "./style";
 //Imported components from Material UI
 import { Card, Typography, Container, Chip } from "@material-ui/core";
 import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
 
-const Note = ({ title, content, reminderDate, reminderTime }) => {
+const Note = ({ notes, title, content, reminderDate, reminderTime }) => {
     const classes = useStyles();
 
-    const handleDelete = (e) => {
-        console.log(e.target);
+    const handleDelete = () => {
+        notes.map((note) => {
+            note.reminder.date = "";
+            note.reminder.time = "";
+            console.log(notes);
+        });
     };
 
     const displayChip =
@@ -39,6 +43,7 @@ const Note = ({ title, content, reminderDate, reminderTime }) => {
 
             <Container>
                 <Chip
+                    className={classes.alertBadge}
                     style={displayChip}
                     icon={<NotificationsActiveOutlinedIcon />}
                     size="small"

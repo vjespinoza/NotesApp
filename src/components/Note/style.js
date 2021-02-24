@@ -15,6 +15,9 @@ const useStyles = makeStyles({
         fontSize: 14,
         lineHeight: "1.5",
     },
+    alertBadge: {
+        marginTop: "1rem",
+    },
 });
 
 export default useStyles;
