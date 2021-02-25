@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Note from "../Note/Note";
 import { Container } from "@material-ui/core";
 import useStyles from "./style";
@@ -16,8 +16,6 @@ const NotesList = ({ notes }) => {
                             notes={notes}
                             title={note.title}
                             content={note.content}
-                            reminderDate={note.reminder.date}
-                            reminderTime={note.reminder.time}
                         />
                     );
                 })}

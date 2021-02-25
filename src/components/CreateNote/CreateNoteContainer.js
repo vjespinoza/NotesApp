@@ -14,6 +14,8 @@ const CreateNoteContainer = ({
     setNoteAlert,
     noteBgColor,
     setNoteBgColor,
+    alertBadge,
+    setAlertBadge,
 }) => {
     const noteId = () => {
         return notes.length + 1;
@@ -51,6 +53,21 @@ const CreateNoteContainer = ({
         }
     };
 
+    const noteAlertBadge = () => {
+        let activeAlert = {};
+        notes.map((note) => {
+            if (note.reminder.active === true) {
+                activeAlert = {
+                    active: note.reminder.active,
+                    date: note.reminder.date,
+                    time: note.reminder.time,
+                };
+            }
+        });
+        return activeAlert;
+    };
+    console.log("Active Alerts", noteAlertBadge());
+
     // const noteColor = () => {};
     // const noteArchived = () => {};
     // const noteTags = () => {};
@@ -71,7 +88,12 @@ const CreateNoteContainer = ({
         document.getElementsByName("title")[0].value = "";
         document.getElementsByName("content")[0].value = "";
         setNoteAlert(false);
+        setAlertBadge([...alertBadge, noteAlertBadge()]);
     };
+
+    console.log("Notes", notes);
+    console.log("AlertBadge", alertBadge);
+
     //CreateNote footer icons
     const createNoteIcons = [
         { name: "alert", icon: <NotificationsNone /> },
