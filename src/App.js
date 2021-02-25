@@ -13,15 +13,12 @@ function App() {
         localStorage.notes ? JSON.parse(localStorage.notes) : []
     );
     const [noteAlert, setNoteAlert] = useState(false);
-    const [alertBadge, setAlertBadge] = useState(
-        localStorage.alertBadge ? JSON.parse(localStorage.alertBadge) : []
-    );
+
     const [noteBgColor, setNoteBgColor] = useState("ffffff");
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
-        localStorage.setItem("alertBadge", JSON.stringify(alertBadge));
-    }, [notes, alertBadge]);
+    }, [notes]);
 
     return (
         <div className={classes.app}>
@@ -34,8 +31,6 @@ function App() {
                 setNoteAlert={setNoteAlert}
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
-                alertBadge={alertBadge}
-                setAlertBadge={setAlertBadge}
             />
         </div>
     );

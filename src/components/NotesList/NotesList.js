@@ -3,7 +3,7 @@ import Note from "../Note/Note";
 import { Container } from "@material-ui/core";
 import useStyles from "./style";
 
-const NotesList = ({ notes }) => {
+const NotesList = ({ notes, setNotes }) => {
     const classes = useStyles();
 
     if (notes.length > 0) {
@@ -13,9 +13,14 @@ const NotesList = ({ notes }) => {
                     return (
                         <Note
                             key={index}
+                            id={note.id - 1}
                             notes={notes}
+                            setNotes={setNotes}
                             title={note.title}
                             content={note.content}
+                            active={note.reminder.active}
+                            date={note.reminder.date}
+                            time={note.reminder.time}
                         />
                     );
                 })}
