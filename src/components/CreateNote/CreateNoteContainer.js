@@ -16,6 +16,8 @@ const CreateNoteContainer = ({
     setNoteBgColor,
     tag,
     setTag,
+    noteTag,
+    setNoteTag,
 }) => {
     const noteId = () => {
         return notes.length + 1;
@@ -101,6 +103,8 @@ const CreateNoteContainer = ({
             setNoteBgColor={setNoteBgColor}
             tag={tag}
             setTag={setTag}
+            noteTag={noteTag}
+            setNoteTag={setNoteTag}
         />
     );
 };

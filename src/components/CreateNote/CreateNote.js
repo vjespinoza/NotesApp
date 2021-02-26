@@ -24,6 +24,8 @@ const CreateNote = ({
     setNoteBgColor,
     tag,
     setTag,
+    noteTag,
+    setNoteTag,
 }) => {
     const classes = useStyles();
 
@@ -137,6 +139,8 @@ const CreateNote = ({
                 closeFormHandler={closeFormHandler}
                 tag={tag}
                 setTag={setTag}
+                noteTag={noteTag}
+                setNoteTag={setNoteTag}
             />
         </div>
     );

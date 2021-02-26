@@ -7,13 +7,21 @@ import {
     Typography,
     InputAdornment,
     IconButton,
+    List,
+    ListItem,
+    ListItemIcon,
+    Checkbox,
+    ListItemText,
 } from "@material-ui/core";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 
-const FormTags = ({ tag, setTag }) => {
+const FormTags = ({ tag, setTag, noteTag, setNoteTag }) => {
     const classes = useStyles();
 
     const [query, setQuery] = useState("");
+    const [checked, setChecked] = useState([]);
+
+    const tags = tag;
 
     const getNewTag = (e) => {
         setQuery(e.target.value);
@@ -23,6 +31,19 @@ const FormTags = ({ tag, setTag }) => {
         setTag(tag.concat(query));
         setQuery("");
         document.getElementById("inputTag").value = "";
+    };
+
+    const handleToggle = (value) => () => {
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+
+        if (currentIndex === -1) {
+            newChecked.push(value);
+        } else {
+            newChecked.splice(currentIndex, 1);
+        }
+
+        setChecked(newChecked);
     };
 
     return (
@@ -50,6 +71,33 @@ const FormTags = ({ tag, setTag }) => {
                     }
                 />
             </FormControl>
+            <List>
+                {tags.map((value) => {
+                    const labelId = `checkbox-list-label-${value}`;
+
+                    return (
+                        <ListItem
+                            key={value}
+                            role={undefined}
+                            dense
+                            button
+                            onClick={handleToggle(value)}
+                        >
+                            <ListItemIcon>
+                                <Checkbox
+                                    color="primary"
+                                    edge="start"
+                                    checked={checked.indexOf(value) !== -1}
+                                    tabIndex={-1}
+                                    disableRipple
+                                    inputProps={{ "aria-labelledby": labelId }}
+                                />
+                            </ListItemIcon>
+                            <ListItemText id={labelId} primary={value} />
+                        </ListItem>
+                    );
+                })}
+            </List>
         </Card>
     );
 };

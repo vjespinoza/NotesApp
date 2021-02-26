@@ -15,6 +15,8 @@ const Dashboard = ({
     setNoteBgColor,
     tag,
     setTag,
+    noteTag,
+    setNoteTag,
 }) => {
     const classes = useStyles();
 
@@ -30,6 +32,8 @@ const Dashboard = ({
                     setNoteBgColor={setNoteBgColor}
                     tag={tag}
                     setTag={setTag}
+                    noteTag={noteTag}
+                    setNoteTag={setNoteTag}
                 />
             </Container>
             <NotesList notes={notes} setNotes={setNotes} />
