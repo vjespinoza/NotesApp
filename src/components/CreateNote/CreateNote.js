@@ -19,6 +19,8 @@ const CreateNote = ({
     addNoteHandler,
     noteTitle,
     noteContent,
+    noteBgColor,
+    setNoteBgColor,
 }) => {
     const classes = useStyles();
 
@@ -26,9 +28,29 @@ const CreateNote = ({
         switch (e.currentTarget.getAttribute("name")) {
             case "alert":
                 document.getElementById("formReminder").style.display = "flex";
+                document.getElementById("formColor").style.display = "none";
                 break;
             case "color":
                 document.getElementById("formColor").style.display = "flex";
+                document.getElementById("formReminder").style.display = "none";
+                break;
+            default:
+                document.getElementById("formReminder").style.display = "none";
+                document.getElementById("formColor").style.display = "none";
+                break;
+        }
+    };
+    const closeFormHandler = (e) => {
+        switch (e.currentTarget.getAttribute("name")) {
+            case "alert":
+                document.getElementById("formReminder").style.display = "none";
+                break;
+            case "color":
+                document.getElementById("formColor").style.display = "none";
+                break;
+            default:
+                document.getElementById("formReminder").style.display = "none";
+                document.getElementById("formColor").style.display = "none";
                 break;
         }
     };
@@ -71,7 +93,7 @@ const CreateNote = ({
                                     className={classes.iconItem}
                                     key={index}
                                     name={icon.name}
-                                    onClick={openFormHandler}
+                                    onPointerEnter={openFormHandler}
                                 >
                                     <ListItemIcon className={classes.icon}>
                                         {icon.icon}
@@ -88,8 +110,15 @@ const CreateNote = ({
                     </Button>
                 </div>
             </Card>
-            <FormReminder toggleAlert={toggleAlert} />
-            <FormColor />
+            <FormReminder
+                closeFormHandler={closeFormHandler}
+                toggleAlert={toggleAlert}
+            />
+            <FormColor
+                closeFormHandler={closeFormHandler}
+                noteBgColor={noteBgColor}
+                setNoteBgColor={setNoteBgColor}
+            />
         </div>
     );
 };

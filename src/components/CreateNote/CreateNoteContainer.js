@@ -65,6 +65,10 @@ const CreateNoteContainer = ({
                     content: noteContent(),
                     timestamp: noteTimestamp(),
                     reminder: noteReminder(),
+                    background: {
+                        checked: noteBgColor.checked,
+                        color: noteBgColor.color,
+                    },
                 },
             ]);
         }
@@ -73,6 +77,7 @@ const CreateNoteContainer = ({
         document.getElementsByName("title")[0].value = "";
         document.getElementsByName("content")[0].value = "";
         setNoteAlert(false);
+        setNoteBgColor({ checked: false, color: "#ffffff" });
     };
 
     //CreateNote footer icons
@@ -92,6 +97,8 @@ const CreateNoteContainer = ({
             noteTitle={noteTitle}
             noteContent={noteContent}
             toggleAlert={toggleAlert}
+            noteBgColor={noteBgColor}
+            setNoteBgColor={setNoteBgColor}
         />
     );
 };

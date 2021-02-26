@@ -8,7 +8,7 @@ import {
     Button,
 } from "@material-ui/core";
 
-const FormReminder = ({ toggleAlert }) => {
+const FormReminder = ({ toggleAlert, closeFormHandler }) => {
     const classes = useStyles();
 
     const defaultDate = () => {
@@ -40,7 +40,11 @@ const FormReminder = ({ toggleAlert }) => {
     };
 
     return (
-        <Card id="formReminder" className={classes.reminderForm}>
+        <Card
+            id="formReminder"
+            className={classes.reminderForm}
+            onPointerLeave={closeFormHandler}
+        >
             <Typography className={classes.formTitle} variant="h3">
                 Reminder:
             </Typography>

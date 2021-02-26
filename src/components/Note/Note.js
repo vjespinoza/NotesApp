@@ -6,35 +6,36 @@ import { Card, Typography, Container, Chip } from "@material-ui/core";
 import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const Note = ({ notes, setNotes, title, content, active, date, time, id }) => {
+const Note = ({
+    notes,
+    setNotes,
+    title,
+    content,
+    active,
+    date,
+    time,
+    id,
+    color,
+}) => {
     const classes = useStyles();
 
-    console.log(notes);
     //Delete chip element
-    const handleDelete = (e) => {
+    const handleBadgeDelete = (e) => {
         const closeIconID = parseInt(e.currentTarget.id.slice(10));
-        console.log(closeIconID);
-        console.log(id);
 
         const notesCopy = [...notes];
         // console.log(notesCopy);
 
         const noteCopy = { ...notes[closeIconID] };
-        console.log(noteCopy);
 
         noteCopy.reminder.active = false;
         noteCopy.reminder.date = "";
         noteCopy.reminder.time = "";
-        // console.log(notesCopy);
-        // console.log(noteCopy);
 
-        console.log(notes);
         notes[closeIconID] = noteCopy;
-        console.log(notes);
 
         if (closeIconID === id) {
             setNotes([...notes]);
-            console.log(notes);
         }
     };
 
@@ -60,14 +61,18 @@ const Note = ({ notes, setNotes, title, content, active, date, time, id }) => {
             className={classes.alertBadge}
             icon={<NotificationsActiveOutlinedIcon />}
             size="small"
-            onDelete={handleDelete}
+            onDelete={handleBadgeDelete}
             label={`${activeAlert.date}, ${activeAlert.time}`}
             deleteIcon={<HighlightOffIcon id={`badgeClose${id}`} />}
         ></Chip>
     );
 
     return (
-        <Card variant="outlined" className={classes.note}>
+        <Card
+            variant="outlined"
+            className={classes.note}
+            style={{ backgroundColor: color }}
+        >
             <Container>
                 <Typography
                     className={classes.noteTitle}
