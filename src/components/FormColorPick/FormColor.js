@@ -14,26 +14,22 @@ const FormColor = ({ closeFormHandler, noteBgColor, setNoteBgColor }) => {
     const classes = useStyles();
 
     const colorPalette = [
-        { checked: true, color: "#ffffff" },
-        { checked: undefined, color: "#f28b82" },
-        { checked: undefined, color: "#fbbc04" },
-        { checked: undefined, color: "#fff475" },
-        { checked: undefined, color: "#ccff90" },
-        { checked: undefined, color: "#a7ffeb" },
-        { checked: undefined, color: "#4cc9f0" },
-        { checked: undefined, color: "#aecbfa" },
-        { checked: undefined, color: "#d7aefb" },
-        { checked: undefined, color: "#fdcfe8" },
-        { checked: undefined, color: "#e6c9a8" },
-        { checked: undefined, color: "#d1c7c9" },
+        "#ffffff",
+        "#f28b82",
+        "#fbbc04",
+        "#fff475",
+        "#ccff90",
+        "#a7ffeb",
+        "#4cc9f0",
+        "#aecbfa",
+        "#d7aefb",
+        "#fdcfe8",
+        "#e6c9a8",
+        "#d1c7c9",
     ];
 
     const handleColorChange = (e) => {
-        if (e.target.value !== "#ffffff") {
-            colorPalette[0].checked = undefined;
-            document.getElementById("color1").removeAttribute("checked");
-        }
-        setNoteBgColor({ checked: e.target.checked, color: e.target.value });
+        setNoteBgColor(e.target.value);
     };
 
     return (
@@ -46,16 +42,19 @@ const FormColor = ({ closeFormHandler, noteBgColor, setNoteBgColor }) => {
                 Colors:
             </Typography>
             <FormControl>
-                <RadioGroup className={classes.colorList} name="colorPick">
-                    {colorPalette.map((colors, index) => {
+                <RadioGroup
+                    className={classes.colorList}
+                    value={noteBgColor}
+                    name="colorPick"
+                >
+                    {colorPalette.map((color, index) => {
                         return (
                             <FormControlLabel
                                 key={index}
-                                value={colors.color}
-                                checked={colorPalette.checked}
-                                onClick={handleColorChange}
+                                value={color}
+                                onChange={handleColorChange}
                                 className={classes.input}
-                                style={{ background: colors.color }}
+                                style={{ background: color }}
                                 control={
                                     <Radio
                                         id={`color${index + 1}`}

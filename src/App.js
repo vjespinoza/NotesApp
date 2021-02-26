@@ -14,10 +14,7 @@ function App() {
     );
     const [noteAlert, setNoteAlert] = useState(false);
 
-    const [noteBgColor, setNoteBgColor] = useState({
-        checked: true,
-        color: "#ffffff",
-    });
+    const [noteBgColor, setNoteBgColor] = useState("#ffffff");
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));

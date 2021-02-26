@@ -18,7 +18,6 @@ const Note = ({
     color,
 }) => {
     const classes = useStyles();
-
     //Delete chip element
     const handleBadgeDelete = (e) => {
         const closeIconID = parseInt(e.currentTarget.id.slice(10));

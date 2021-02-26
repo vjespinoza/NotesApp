@@ -21,7 +21,7 @@ const NotesList = ({ notes, setNotes }) => {
                             active={note.reminder.active}
                             date={note.reminder.date}
                             time={note.reminder.time}
-                            color={note.background.color}
+                            color={note.color}
                         />
                     );
                 })}
