@@ -70,7 +70,7 @@ const CreateNoteContainer = ({
                     timestamp: noteTimestamp(),
                     reminder: noteReminder(),
                     color: noteBgColor,
-                    //tags: tag, >> To be fixed: It shows all global tags
+                    tags: noteTag,
                 },
             ]);
         }
