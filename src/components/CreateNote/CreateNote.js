@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import FormReminder from "../FormReminder/FormReminder";
 import FormColor from "../FormColorPick/FormColor";
+import FormTag from "../FormTag/FormTag";
 
 const CreateNote = ({
     notes,
@@ -21,6 +22,8 @@ const CreateNote = ({
     noteContent,
     noteBgColor,
     setNoteBgColor,
+    tag,
+    setTag,
 }) => {
     const classes = useStyles();
 
@@ -29,14 +32,22 @@ const CreateNote = ({
             case "alert":
                 document.getElementById("formReminder").style.display = "flex";
                 document.getElementById("formColor").style.display = "none";
+                document.getElementById("formTag").style.display = "none";
                 break;
             case "color":
                 document.getElementById("formColor").style.display = "flex";
+                document.getElementById("formReminder").style.display = "none";
+                document.getElementById("formTag").style.display = "none";
+                break;
+            case "tag":
+                document.getElementById("formTag").style.display = "flex";
+                document.getElementById("formColor").style.display = "none";
                 document.getElementById("formReminder").style.display = "none";
                 break;
             default:
                 document.getElementById("formReminder").style.display = "none";
                 document.getElementById("formColor").style.display = "none";
+                document.getElementById("formTag").style.display = "none";
                 break;
         }
     };
@@ -47,6 +58,9 @@ const CreateNote = ({
                 break;
             case "color":
                 document.getElementById("formColor").style.display = "none";
+                break;
+            case "tag":
+                document.getElementById("formTag").style.display = "none";
                 break;
             default:
                 document.getElementById("formReminder").style.display = "none";
@@ -118,6 +132,11 @@ const CreateNote = ({
                 closeFormHandler={closeFormHandler}
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
+            />
+            <FormTag
+                closeFormHandler={closeFormHandler}
+                tag={tag}
+                setTag={setTag}
             />
         </div>
     );

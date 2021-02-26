@@ -13,8 +13,8 @@ function App() {
         localStorage.notes ? JSON.parse(localStorage.notes) : []
     );
     const [noteAlert, setNoteAlert] = useState(false);
-
     const [noteBgColor, setNoteBgColor] = useState("#ffffff");
+    const [tag, setTag] = useState([]);
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
@@ -31,6 +31,8 @@ function App() {
                 setNoteAlert={setNoteAlert}
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
+                tag={tag}
+                setTag={setTag}
             />
         </div>
     );

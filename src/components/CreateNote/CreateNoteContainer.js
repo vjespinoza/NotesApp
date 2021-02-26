@@ -14,6 +14,8 @@ const CreateNoteContainer = ({
     setNoteAlert,
     noteBgColor,
     setNoteBgColor,
+    tag,
+    setTag,
 }) => {
     const noteId = () => {
         return notes.length + 1;
@@ -66,6 +68,7 @@ const CreateNoteContainer = ({
                     timestamp: noteTimestamp(),
                     reminder: noteReminder(),
                     color: noteBgColor,
+                    //tags: tag, >> To be fixed: It shows all global tags
                 },
             ]);
         }
@@ -96,6 +99,8 @@ const CreateNoteContainer = ({
             toggleAlert={toggleAlert}
             noteBgColor={noteBgColor}
             setNoteBgColor={setNoteBgColor}
+            tag={tag}
+            setTag={setTag}
         />
     );
 };
