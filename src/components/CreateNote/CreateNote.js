@@ -55,10 +55,10 @@ const CreateNote = ({
                 break;
         }
     };
-    const closeFormHandler = (e) => {
-        document.getElementById("formReminder").style.display = "none";
+    const closeFormHandler = () => {
         document.getElementById("formColor").style.display = "none";
         document.getElementById("formTag").style.display = "none";
+        document.getElementById("formReminder").style.display = "none";
     };
 
     return (

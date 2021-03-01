@@ -10,6 +10,9 @@ const useStyles = makeStyles({
         position: "absolute",
         top: "calc(100% - 70px)",
         left: "10rem",
+        "&:focus-whitin": {
+            background: "red",
+        },
     },
     formTitle: {
         textAlign: "left",

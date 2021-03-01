@@ -16,20 +16,20 @@ const Note = ({
     time,
     id,
     color,
+    tags,
 }) => {
     const classes = useStyles();
-    //Delete chip element
+    //Delete Alert Badge
     const handleBadgeDelete = (e) => {
         const closeIconID = parseInt(e.currentTarget.id.slice(10));
 
-        const notesCopy = [...notes];
-        // console.log(notesCopy);
-
         const noteCopy = { ...notes[closeIconID] };
+        console.log(noteCopy);
 
         noteCopy.reminder.active = false;
         noteCopy.reminder.date = "";
         noteCopy.reminder.time = "";
+        // noteCopy.tags = [];
 
         notes[closeIconID] = noteCopy;
 
@@ -38,13 +38,38 @@ const Note = ({
         }
     };
 
+    // Delete Tag Badge
+    const handleTagDelete = (e) => {
+        const closeIconID = parseInt(e.currentTarget.id.slice(8));
+        const tagFilter = e.currentTarget.parentElement.innerText;
+        console.log(tagFilter);
+
+        const noteCopy = { ...notes[closeIconID].tags };
+        console.log(noteCopy);
+        console.log(noteCopy[closeIconID]);
+
+        // if (tagFilter === noteCopy[closeIconID]) {
+        //     delete noteCopy[closeIconID];
+        // }
+
+        console.log(noteCopy);
+
+        // noteCopy.tags = [];
+
+        // notes[closeIconID] = noteCopy;
+
+        // if (closeIconID === id) {
+        //     setNotes([...notes]);
+        // }
+    };
+
     //Format date
     const d = new Date(date);
     const month = d.toLocaleString("en", { month: "short" });
     const day = date.slice(8);
     const reminderDate = month + " " + day;
 
-    //Coditional display of Chip element
+    //Coditional display of Alert Badge
     let activeAlert = {};
 
     if (active === true) {
@@ -87,6 +112,21 @@ const Note = ({
                 </Typography>
             </Container>
             <Container>{active === true ? alertBadge : ""}</Container>
+            <Container>
+                {tags.map((tag, index) => (
+                    <Chip
+                        id={`tag${index}`}
+                        key={index}
+                        className={classes.alertBadge}
+                        size="small"
+                        onDelete={handleTagDelete}
+                        label={`${tag}`}
+                        deleteIcon={
+                            <HighlightOffIcon id={`tagClose${index}`} />
+                        }
+                    ></Chip>
+                ))}
+            </Container>
         </Card>
     );
 };

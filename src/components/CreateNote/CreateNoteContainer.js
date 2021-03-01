@@ -83,6 +83,7 @@ const CreateNoteContainer = ({
         setNoteAlert(false);
         setNoteBgColor("#ffffff");
         setChecked([]);
+        setNoteTag([]);
     };
 
     //CreateNote footer icons

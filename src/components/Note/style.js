@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         lineHeight: "1.5",
     },
     alertBadge: {
-        marginTop: "1rem",
+        margin: "0.5rem 0.5rem 0 0",
     },
 });
 
