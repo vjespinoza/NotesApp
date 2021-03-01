@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CreateNote from "./CreateNote";
 import {
     NotificationsNone,
@@ -19,6 +19,8 @@ const CreateNoteContainer = ({
     noteTag,
     setNoteTag,
 }) => {
+    const [checked, setChecked] = useState([]);
+
     const noteId = () => {
         return notes.length + 1;
     };
@@ -80,6 +82,7 @@ const CreateNoteContainer = ({
         document.getElementsByName("content")[0].value = "";
         setNoteAlert(false);
         setNoteBgColor("#ffffff");
+        setChecked([]);
     };
 
     //CreateNote footer icons
@@ -105,6 +108,8 @@ const CreateNoteContainer = ({
             setTag={setTag}
             noteTag={noteTag}
             setNoteTag={setNoteTag}
+            checked={checked}
+            setChecked={setChecked}
         />
     );
 };

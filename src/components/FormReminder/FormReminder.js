@@ -43,7 +43,7 @@ const FormReminder = ({ toggleAlert, closeFormHandler }) => {
         <Card
             id="formReminder"
             className={classes.reminderForm}
-            onPointerLeave={closeFormHandler}
+            onMouseLeave={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Reminder:

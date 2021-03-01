@@ -15,11 +15,17 @@ import {
 } from "@material-ui/core";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 
-const FormTags = ({ tag, setTag, noteTag, setNoteTag }) => {
+const FormTags = ({
+    tag,
+    setTag,
+    checked,
+    setChecked,
+    setNoteTag,
+    closeFormHandler,
+}) => {
     const classes = useStyles();
 
     const [query, setQuery] = useState("");
-    const [checked, setChecked] = useState([]);
 
     const tags = tag;
 
@@ -44,10 +50,15 @@ const FormTags = ({ tag, setTag, noteTag, setNoteTag }) => {
         }
 
         setChecked(newChecked);
+        setNoteTag(newChecked);
     };
 
     return (
-        <Card id="formTag" className={classes.formTag}>
+        <Card
+            id="formTag"
+            className={classes.formTag}
+            onMouseLeave={closeFormHandler}
+        >
             <Typography className={classes.formTitle} variant="h3">
                 Tag note:
             </Typography>

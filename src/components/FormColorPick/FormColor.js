@@ -36,7 +36,7 @@ const FormColor = ({ closeFormHandler, noteBgColor, setNoteBgColor }) => {
         <Card
             id="formColor"
             className={classes.colorForm}
-            onPointerLeave={closeFormHandler}
+            onMouseLeave={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Colors:

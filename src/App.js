@@ -14,12 +14,15 @@ function App() {
     );
     const [noteAlert, setNoteAlert] = useState(false);
     const [noteBgColor, setNoteBgColor] = useState("#ffffff");
-    const [tag, setTag] = useState([]);
-    const [noteTag, setNoteTag] = useState([]);
+    const [tag, setTag] = useState(
+        localStorage.tag ? JSON.parse(localStorage.tag) : []
+    ); //Global tags
+    const [noteTag, setNoteTag] = useState([]); //Note tags
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
-    }, [notes]);
+        localStorage.setItem("tag", JSON.stringify(tag));
+    }, [notes, tag]);
 
     return (
         <div className={classes.app}>
@@ -34,8 +37,8 @@ function App() {
                 setNoteBgColor={setNoteBgColor}
                 tag={tag}
                 setTag={setTag}
-                noteTag={tag}
-                setNoteTag={setTag}
+                noteTag={noteTag}
+                setNoteTag={setNoteTag}
             />
         </div>
     );

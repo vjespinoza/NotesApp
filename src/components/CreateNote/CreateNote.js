@@ -26,6 +26,8 @@ const CreateNote = ({
     setTag,
     noteTag,
     setNoteTag,
+    checked,
+    setChecked,
 }) => {
     const classes = useStyles();
 
@@ -54,21 +56,9 @@ const CreateNote = ({
         }
     };
     const closeFormHandler = (e) => {
-        switch (e.currentTarget.getAttribute("name")) {
-            case "alert":
-                document.getElementById("formReminder").style.display = "none";
-                break;
-            case "color":
-                document.getElementById("formColor").style.display = "none";
-                break;
-            case "tag":
-                document.getElementById("formTag").style.display = "none";
-                break;
-            default:
-                document.getElementById("formReminder").style.display = "none";
-                document.getElementById("formColor").style.display = "none";
-                break;
-        }
+        document.getElementById("formReminder").style.display = "none";
+        document.getElementById("formColor").style.display = "none";
+        document.getElementById("formTag").style.display = "none";
     };
 
     return (
@@ -109,7 +99,7 @@ const CreateNote = ({
                                     className={classes.iconItem}
                                     key={index}
                                     name={icon.name}
-                                    onPointerEnter={openFormHandler}
+                                    onClick={openFormHandler}
                                 >
                                     <ListItemIcon className={classes.icon}>
                                         {icon.icon}
@@ -141,6 +131,8 @@ const CreateNote = ({
                 setTag={setTag}
                 noteTag={noteTag}
                 setNoteTag={setNoteTag}
+                checked={checked}
+                setChecked={setChecked}
             />
         </div>
     );
