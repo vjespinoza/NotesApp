@@ -24,12 +24,10 @@ const Note = ({
         const closeIconID = parseInt(e.currentTarget.id.slice(10));
 
         const noteCopy = { ...notes[closeIconID] };
-        console.log(noteCopy);
 
         noteCopy.reminder.active = false;
         noteCopy.reminder.date = "";
         noteCopy.reminder.time = "";
-        // noteCopy.tags = [];
 
         notes[closeIconID] = noteCopy;
 
@@ -40,27 +38,15 @@ const Note = ({
 
     // Delete Tag Badge
     const handleTagDelete = (e) => {
-        const closeIconID = parseInt(e.currentTarget.id.slice(8));
+        const noteID = e.currentTarget.closest(`#note${id}`).id.slice(4);
         const tagFilter = e.currentTarget.parentElement.innerText;
-        console.log(tagFilter);
+        const noteCopy = { ...notes[noteID] };
+        const noteTags = noteCopy.tags;
+        const newNoteTags = noteTags.filter((tag) => tag !== tagFilter);
 
-        const noteCopy = { ...notes[closeIconID].tags };
-        console.log(noteCopy);
-        console.log(noteCopy[closeIconID]);
+        notes[noteID].tags = newNoteTags;
 
-        // if (tagFilter === noteCopy[closeIconID]) {
-        //     delete noteCopy[closeIconID];
-        // }
-
-        console.log(noteCopy);
-
-        // noteCopy.tags = [];
-
-        // notes[closeIconID] = noteCopy;
-
-        // if (closeIconID === id) {
-        //     setNotes([...notes]);
-        // }
+        setNotes([...notes]);
     };
 
     //Format date
@@ -93,6 +79,7 @@ const Note = ({
 
     return (
         <Card
+            id={`note${id}`}
             variant="outlined"
             className={classes.note}
             style={{ backgroundColor: color }}
