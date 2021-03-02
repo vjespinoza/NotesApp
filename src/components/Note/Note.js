@@ -21,16 +21,17 @@ const Note = ({
     const classes = useStyles();
     //Delete Alert Badge
     const handleBadgeDelete = (e) => {
+        //Gets badge (Chip) ID
         const closeIconID = parseInt(e.currentTarget.id.slice(10));
-
+        //Creates copy of note's reminder object
         const noteCopy = { ...notes[closeIconID] };
-
+        //Sets new values for note's reminder object
         noteCopy.reminder.active = false;
         noteCopy.reminder.date = "";
         noteCopy.reminder.time = "";
-
+        //Replaces original note values with the copy's values
         notes[closeIconID] = noteCopy;
-
+        //Sets note's reminder object new state
         if (closeIconID === id) {
             setNotes([...notes]);
         }
@@ -38,14 +39,19 @@ const Note = ({
 
     // Delete Tag Badge
     const handleTagDelete = (e) => {
+        //Gets parent element's (<Note />) ID
         const noteID = e.currentTarget.closest(`#note${id}`).id.slice(4);
+        //Isolates note's text for later use as filter param
         const tagFilter = e.currentTarget.parentElement.innerText;
+        //Creates copy of note's Tag Object
         const noteCopy = { ...notes[noteID] };
+        //Isolates the tag array to be filtered from the note's copy
         const noteTags = noteCopy.tags;
+        //Filters the note copy's tag array
         const newNoteTags = noteTags.filter((tag) => tag !== tagFilter);
-
+        //Sets filtered array to the original note´s tag array
         notes[noteID].tags = newNoteTags;
-
+        //Sets note's tag object new state
         setNotes([...notes]);
     };
 
