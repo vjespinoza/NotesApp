@@ -36,18 +36,22 @@ const useStyles = makeStyles({
     noteTitle: {
         // display: "none",
         display: "flex",
+        width: "100%",
     },
     createNoteInput1: {
         display: "block",
+        width: "inherit",
         outline: "unset",
         height: "fit-content",
         fontWeight: "bold",
+        wordBreak: "break-word",
     },
     createNoteInput2: {
         display: "block",
         outline: "unset",
         height: "fit-content",
         marginTop: "10px",
+        wordBreak: "break-word",
     },
     createNoteFooter: {
         // display: "none",
@@ -60,30 +64,9 @@ const useStyles = makeStyles({
         marginTop: 10,
         padding: 0,
     },
-    createNoteIcons: {
-        display: "flex",
-        justifyItems: "space-between",
-        alignItems: "center",
-        "& span": {
-            display: "none",
-        },
-        "& span:hover": {
-            // display: "none",
-            background: "yellow",
-        },
-    },
+
     closeCreateNote: {
         fontSize: 12,
-    },
-    iconItem: {
-        display: "block",
-        padding: 0,
-        width: 20,
-        marginRight: "2rem",
-    },
-    icon: {
-        cursor: "pointer",
-        minWidth: 20,
     },
 });
 

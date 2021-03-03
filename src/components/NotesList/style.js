@@ -6,6 +6,8 @@ const useStyles = makeStyles({
         gap: "1vw",
         width: "80%",
         height: "fit-content",
+        position: "relative",
+        zIndex: -10,
     },
 });
 

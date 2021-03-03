@@ -5,6 +5,8 @@ import useStyles from "./style";
 import { Card, Typography, Container, Chip } from "@material-ui/core";
 import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+//Components
+import Footer from "../Footer/Footer";
 
 const Note = ({
     notes,
@@ -119,6 +121,9 @@ const Note = ({
                         }
                     ></Chip>
                 ))}
+            </Container>
+            <Container id="noteFooter" className={classes.noteFooter}>
+                <Footer />
             </Container>
         </Card>
     );

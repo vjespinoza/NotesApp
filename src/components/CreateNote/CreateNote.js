@@ -1,21 +1,15 @@
 import React from "react";
 import useStyles from "./style";
-import {
-    Card,
-    CardActionArea,
-    InputBase,
-    List,
-    ListItem,
-    ListItemIcon,
-    Button,
-} from "@material-ui/core";
+//Material UI elements
+import { Card, InputBase, Button } from "@material-ui/core";
+//Components
+import Footer from "../Footer/Footer";
 import FormReminder from "../FormReminder/FormReminder";
 import FormColor from "../FormColorPick/FormColor";
 import FormTag from "../FormTag/FormTag";
 
 const CreateNote = ({
     notes,
-    createNoteIcons,
     toggleAlert,
     addNoteHandler,
     noteTitle,
@@ -31,30 +25,6 @@ const CreateNote = ({
 }) => {
     const classes = useStyles();
 
-    const openFormHandler = (e) => {
-        switch (e.currentTarget.getAttribute("name")) {
-            case "alert":
-                document.getElementById("formReminder").style.display = "flex";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
-            case "color":
-                document.getElementById("formColor").style.display = "flex";
-                document.getElementById("formReminder").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
-            case "tag":
-                document.getElementById("formTag").style.display = "flex";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formReminder").style.display = "none";
-                break;
-            default:
-                document.getElementById("formReminder").style.display = "none";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
-        }
-    };
     const closeFormHandler = () => {
         document.getElementById("formColor").style.display = "none";
         document.getElementById("formTag").style.display = "none";
@@ -70,6 +40,7 @@ const CreateNote = ({
                         className={classes.createNoteInput1}
                         placeholder="Title..."
                         variant="outlined"
+                        multiline={true}
                         value={notes.value}
                         onChange={noteTitle}
                     ></InputBase>
@@ -87,27 +58,8 @@ const CreateNote = ({
                     id="toggleFooterDisplay"
                     className={classes.createNoteFooter}
                 >
-                    <CardActionArea
-                        disableRipple={true}
-                        className={classes.focusHighlight}
-                    >
-                        <List className={classes.createNoteIcons}>
-                            {createNoteIcons.map((icon, index) => (
-                                <ListItem
-                                    button={true}
-                                    disableRipple={true}
-                                    className={classes.iconItem}
-                                    key={index}
-                                    name={icon.name}
-                                    onClick={openFormHandler}
-                                >
-                                    <ListItemIcon className={classes.icon}>
-                                        {icon.icon}
-                                    </ListItemIcon>
-                                </ListItem>
-                            ))}
-                        </List>
-                    </CardActionArea>
+                    <Footer className={classes.focusHighlight} />
+
                     <Button
                         onClick={addNoteHandler}
                         className={classes.closeCreateNote}

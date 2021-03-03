@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import CreateNote from "./CreateNote";
-import {
-    NotificationsNone,
-    PaletteOutlined,
-    MoveToInboxOutlined,
-    LabelOutlined,
-} from "@material-ui/icons";
 
 const CreateNoteContainer = ({
     notes,
@@ -77,7 +71,7 @@ const CreateNoteContainer = ({
             ]);
         }
 
-        //Clear createNote inputs and reset setNoteAlert
+        //Clear createNote inputs and reset states
         document.getElementsByName("title")[0].value = "";
         document.getElementsByName("content")[0].value = "";
         setNoteAlert(false);
@@ -86,18 +80,9 @@ const CreateNoteContainer = ({
         setNoteTag([]);
     };
 
-    //CreateNote footer icons
-    const createNoteIcons = [
-        { name: "alert", icon: <NotificationsNone /> },
-        { name: "color", icon: <PaletteOutlined /> },
-        { name: "archive", icon: <MoveToInboxOutlined /> },
-        { name: "tag", icon: <LabelOutlined /> },
-    ];
-
     return (
         <CreateNote
             notes={notes}
-            createNoteIcons={createNoteIcons}
             noteReminder={noteReminder}
             addNoteHandler={addNoteHandler}
             noteTitle={noteTitle}
