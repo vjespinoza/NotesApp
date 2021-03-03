@@ -5,6 +5,7 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "flex-start",
         width: "100%",
+        // position: "relative",
     },
     createNoteIcons: {
         display: "flex",

@@ -126,15 +126,18 @@ const Note = ({
                     ></Chip>
                 ))}
             </Container>
-            <Container id="noteFooter" className={classes.noteFooter}>
-                <Footer
-                    originNote={true}
-                    tag={tag}
-                    setTag={setTag}
-                    checked={checked}
-                    setChecked={setChecked}
-                />
-            </Container>
+            <div className={classes.footerWrapper}>
+                <Container id="noteFooter" className={classes.noteFooter}>
+                    <Footer
+                        originNote={true}
+                        notes={notes}
+                        tag={tag}
+                        setTag={setTag}
+                        checked={checked}
+                        setChecked={setChecked}
+                    />
+                </Container>
+            </div>
         </Card>
     );
 };

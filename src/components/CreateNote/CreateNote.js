@@ -51,20 +51,23 @@ const CreateNote = ({
                 onChange={noteContent}
             ></InputBase>
             <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
-                <Footer
-                    menuIcon={false}
-                    originCreateNote={true}
-                    closeFormHandler={closeFormHandler}
-                    toggleAlert={toggleAlert}
-                    noteBgColor={noteBgColor}
-                    setNoteBgColor={setNoteBgColor}
-                    tag={tag}
-                    setTag={setTag}
-                    noteTag={noteTag}
-                    setNoteTag={setNoteTag}
-                    checked={checked}
-                    setChecked={setChecked}
-                />
+                <div className={classes.innerWrap}>
+                    <Footer
+                        notes={notes}
+                        menuIcon={false}
+                        originCreateNote={true}
+                        closeFormHandler={closeFormHandler}
+                        toggleAlert={toggleAlert}
+                        noteBgColor={noteBgColor}
+                        setNoteBgColor={setNoteBgColor}
+                        tag={tag}
+                        setTag={setTag}
+                        noteTag={noteTag}
+                        setNoteTag={setNoteTag}
+                        checked={checked}
+                        setChecked={setChecked}
+                    />
+                </div>
 
                 <Button
                     onClick={addNoteHandler}

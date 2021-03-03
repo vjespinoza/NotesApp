@@ -3,13 +3,12 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles({
     createNoteWrapper: {
         display: "block",
-        // position: "relative",
-        // zIndex: 1,
-        width: "40vw",
+        overflow: "visible",
+        width: "30vw",
+        minWidth: "20rem",
         margin: "50px auto 70px auto",
-        padding: "5px 12px",
+        padding: "20px 25px",
         "&:focus-within": {
-            padding: "10px 12px",
             "& #toggleTitleDisplay": {
                 display: "flex",
             },
@@ -48,11 +47,15 @@ const useStyles = makeStyles({
         height: "1.9rem",
         marginTop: 10,
         padding: 0,
+        position: "relative",
     },
-
+    innerWrap: {
+        width: "50%",
+        minWidth: "12rem",
+    },
     closeCreateNote: {
         fontSize: 12,
-        marginLeft: "40%",
+        // marginLeft: "40%",
     },
 });
 

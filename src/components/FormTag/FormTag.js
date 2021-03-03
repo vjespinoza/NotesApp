@@ -16,6 +16,7 @@ import {
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 
 const FormTags = ({
+    notes,
     tag,
     setTag,
     checked,
@@ -57,7 +58,7 @@ const FormTags = ({
         <Card
             id="formTag"
             className={classes.formTag}
-            onMouseLeave={closeFormHandler}
+            // onMouseLeave={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Tag note:

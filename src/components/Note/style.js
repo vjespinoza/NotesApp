@@ -9,12 +9,15 @@ const useStyles = makeStyles({
         padding: "15px 0px 40px 0",
         marginBottom: "1vw",
         position: "relative",
-        "&:hover": {
-            "& #noteFooter": {
-                bottom: -5,
-                transition: "bottom 200ms ease-in-out",
-            },
-        },
+        // "&:hover": {
+        //     "& #noteFooter": {
+        //         bottom: -5,
+        //         transform: "scale(1)",
+        //         transformOrigin: "left",
+        //         transition: "200ms ease-in-out",
+        //     },
+        // },
+        overflow: "visible",
     },
     noteTitle: {
         fontSize: 16,
@@ -28,11 +31,16 @@ const useStyles = makeStyles({
     alertBadge: {
         margin: "0.5rem 0.5rem 0 0",
     },
+    footerWrapper: {
+        overflow: "visible",
+    },
     noteFooter: {
         position: "absolute",
-        bottom: "-100%",
+        bottom: -5,
         left: 0,
-        transition: "bottom 200ms ease-in-out",
+        // transform: "scale(0)",
+        // transformOrigin: "left",
+        // transition: "200ms ease-in-out",
     },
 });
 

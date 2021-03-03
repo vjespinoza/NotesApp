@@ -22,6 +22,7 @@ import {
 } from "@material-ui/icons";
 
 const Footer = ({
+    notes,
     menuIcon,
     originNote,
     originCreateNote,
@@ -51,14 +52,32 @@ const Footer = ({
         const length = createNoteIcons.length;
         delete createNoteIcons[length - 1];
     }
+
     //Opens forms (Reminder, color, tags)
     const openFormHandler = (e) => {
-        const butonName = e.currentTarget.getAttribute("name");
+        const buttonName = e.currentTarget.getAttribute("name");
 
-        if (originNote === true) {
-            console.log("i come from Note", butonName);
-        } else if (originCreateNote === true) {
-            console.log("i come from CreateNote", butonName);
+        //With this same function I can set the positioning of the forms
+        //depending on 'origin'
+        if (originNote === true && buttonName === "alert") {
+            console.log(e.currentTarget.closest("#note1")); //Promising
+            console.log("i come from Note", buttonName);
+        } else if (originNote === true && buttonName === "color") {
+            console.log("i come from Note", buttonName);
+        } else if (originNote === true && buttonName === "archive") {
+            console.log("i come from Note", buttonName);
+        } else if (originNote === true && buttonName === "tag") {
+            console.log("i come from Note", buttonName);
+        }
+
+        if (originCreateNote === true && buttonName === "alert") {
+            console.log("i come from CreateNote", buttonName);
+        } else if (originCreateNote === true && buttonName === "color") {
+            console.log("i come from CreateNote", buttonName);
+        } else if (originCreateNote === true && buttonName === "archive") {
+            console.log("i come from CreateNote", buttonName);
+        } else if (originCreateNote === true && buttonName === "tag") {
+            console.log("i come from CreateNote", buttonName);
         }
     };
 
@@ -72,6 +91,7 @@ const Footer = ({
                             disableRipple={true}
                             className={classes.iconItem}
                             key={index}
+                            // id={`${icon.name}${index}`}
                             name={icon.name}
                             onClick={openFormHandler}
                         >
@@ -92,6 +112,7 @@ const Footer = ({
                 setNoteBgColor={setNoteBgColor}
             />
             <FormTag
+                notes={notes}
                 closeFormHandler={closeFormHandler}
                 tag={tag}
                 setTag={setTag}

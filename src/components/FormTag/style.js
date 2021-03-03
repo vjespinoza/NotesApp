@@ -2,17 +2,17 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     formTag: {
-        display: "flex",
+        // display: "flex",
+        display: "none",
         flexDirection: "column",
         width: "12.5rem",
         height: "fit-content",
         padding: "0.8rem",
         position: "absolute",
-        top: "calc(100% - 70px)",
-        left: "10rem",
-        "&:focus-whitin": {
-            background: "red",
-        },
+        zIndex: 10,
+        top: "100%",
+        left: "20px",
+        background: "purple",
     },
     formTitle: {
         textAlign: "left",
