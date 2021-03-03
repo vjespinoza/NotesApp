@@ -17,6 +17,8 @@ const Dashboard = ({
     setTag,
     noteTag,
     setNoteTag,
+    checked,
+    setChecked,
 }) => {
     const classes = useStyles();
 
@@ -34,9 +36,18 @@ const Dashboard = ({
                     setTag={setTag}
                     noteTag={noteTag}
                     setNoteTag={setNoteTag}
+                    checked={checked}
+                    setChecked={setChecked}
                 />
             </Container>
-            <NotesList notes={notes} setNotes={setNotes} />
+            <NotesList
+                notes={notes}
+                setNotes={setNotes}
+                tag={tag}
+                setTag={setTag}
+                checked={checked}
+                setChecked={setChecked}
+            />
         </main>
     );
 };

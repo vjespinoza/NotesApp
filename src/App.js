@@ -18,6 +18,7 @@ function App() {
         localStorage.tag ? JSON.parse(localStorage.tag) : []
     ); //Global tags
     const [noteTag, setNoteTag] = useState([]); //Note tags
+    const [checked, setChecked] = useState([]);
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
@@ -39,6 +40,8 @@ function App() {
                 setTag={setTag}
                 noteTag={noteTag}
                 setNoteTag={setNoteTag}
+                checked={checked}
+                setChecked={setChecked}
             />
         </div>
     );

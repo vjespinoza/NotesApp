@@ -1,5 +1,9 @@
 import React from "react";
 import useStyles from "./style";
+//Components
+import FormReminder from "../FormReminder/FormReminder";
+import FormColor from "../FormColorPick/FormColor";
+import FormTag from "../FormTag/FormTag";
 //Material UI elements
 import {
     CardActionArea,
@@ -17,7 +21,21 @@ import {
     MoreVertOutlined,
 } from "@material-ui/icons";
 
-const Footer = ({ menuIcon, originNote, originCreateNote }) => {
+const Footer = ({
+    menuIcon,
+    originNote,
+    originCreateNote,
+    closeFormHandler,
+    toggleAlert,
+    noteBgColor,
+    setNoteBgColor,
+    tag,
+    setTag,
+    noteTag,
+    setNoteTag,
+    checked,
+    setChecked,
+}) => {
     const classes = useStyles();
 
     //Footer icons
@@ -45,24 +63,44 @@ const Footer = ({ menuIcon, originNote, originCreateNote }) => {
     };
 
     return (
-        <CardActionArea disableRipple={true} className={classes.footer}>
-            <List className={classes.createNoteIcons}>
-                {createNoteIcons.map((icon, index) => (
-                    <ListItem
-                        button={true}
-                        disableRipple={true}
-                        className={classes.iconItem}
-                        key={index}
-                        name={icon.name}
-                        onClick={openFormHandler}
-                    >
-                        <ListItemIcon className={classes.icon}>
-                            {icon.icon}
-                        </ListItemIcon>
-                    </ListItem>
-                ))}
-            </List>
-        </CardActionArea>
+        <div className={classes.footer}>
+            <CardActionArea disableRipple={true}>
+                <List className={classes.createNoteIcons}>
+                    {createNoteIcons.map((icon, index) => (
+                        <ListItem
+                            button={true}
+                            disableRipple={true}
+                            className={classes.iconItem}
+                            key={index}
+                            name={icon.name}
+                            onClick={openFormHandler}
+                        >
+                            <ListItemIcon className={classes.icon}>
+                                {icon.icon}
+                            </ListItemIcon>
+                        </ListItem>
+                    ))}
+                </List>
+            </CardActionArea>
+            <FormReminder
+                closeFormHandler={closeFormHandler}
+                toggleAlert={toggleAlert}
+            />
+            <FormColor
+                closeFormHandler={closeFormHandler}
+                noteBgColor={noteBgColor}
+                setNoteBgColor={setNoteBgColor}
+            />
+            <FormTag
+                closeFormHandler={closeFormHandler}
+                tag={tag}
+                setTag={setTag}
+                noteTag={noteTag}
+                setNoteTag={setNoteTag}
+                checked={checked}
+                setChecked={setChecked}
+            />
+        </div>
     );
 };
 

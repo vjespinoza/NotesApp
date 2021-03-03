@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CreateNote from "./CreateNote";
 
 const CreateNoteContainer = ({
@@ -12,9 +12,9 @@ const CreateNoteContainer = ({
     setTag,
     noteTag,
     setNoteTag,
+    checked,
+    setChecked,
 }) => {
-    const [checked, setChecked] = useState([]);
-
     const noteId = () => {
         return notes.length + 1;
     };

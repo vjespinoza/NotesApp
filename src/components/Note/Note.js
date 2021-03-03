@@ -19,6 +19,10 @@ const Note = ({
     id,
     color,
     tags,
+    tag,
+    setTag,
+    checked,
+    setChecked,
 }) => {
     const classes = useStyles();
     //Delete Alert Badge
@@ -123,7 +127,13 @@ const Note = ({
                 ))}
             </Container>
             <Container id="noteFooter" className={classes.noteFooter}>
-                <Footer originNote={true} />
+                <Footer
+                    originNote={true}
+                    tag={tag}
+                    setTag={setTag}
+                    checked={checked}
+                    setChecked={setChecked}
+                />
             </Container>
         </Card>
     );

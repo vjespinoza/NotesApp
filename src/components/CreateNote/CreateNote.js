@@ -4,9 +4,6 @@ import useStyles from "./style";
 import { Card, InputBase, Button } from "@material-ui/core";
 //Components
 import Footer from "../Footer/Footer";
-import FormReminder from "../FormReminder/FormReminder";
-import FormColor from "../FormColorPick/FormColor";
-import FormTag from "../FormTag/FormTag";
 
 const CreateNote = ({
     notes,
@@ -32,61 +29,51 @@ const CreateNote = ({
     };
 
     return (
-        <div className={classes.relPosition}>
-            <Card className={classes.createNoteWrapper}>
-                <div className={classes.noteTitle} id="toggleTitleDisplay">
-                    <InputBase
-                        name="title"
-                        className={classes.createNoteInput1}
-                        placeholder="Title..."
-                        variant="outlined"
-                        multiline={true}
-                        value={notes.value}
-                        onChange={noteTitle}
-                    ></InputBase>
-                </div>
+        <Card className={classes.createNoteWrapper}>
+            <div className={classes.noteTitle} id="toggleTitleDisplay">
                 <InputBase
-                    name="content"
-                    className={classes.createNoteInput2}
-                    placeholder="Add a new note..."
+                    name="title"
+                    className={classes.createNoteInput1}
+                    placeholder="Title..."
                     variant="outlined"
                     multiline={true}
                     value={notes.value}
-                    onChange={noteContent}
+                    onChange={noteTitle}
                 ></InputBase>
-                <div
-                    id="toggleFooterDisplay"
-                    className={classes.createNoteFooter}
-                >
-                    <Footer menuIcon={false} originCreateNote={true} />
+            </div>
+            <InputBase
+                name="content"
+                className={classes.createNoteInput2}
+                placeholder="Add a new note..."
+                variant="outlined"
+                multiline={true}
+                value={notes.value}
+                onChange={noteContent}
+            ></InputBase>
+            <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
+                <Footer
+                    menuIcon={false}
+                    originCreateNote={true}
+                    closeFormHandler={closeFormHandler}
+                    toggleAlert={toggleAlert}
+                    noteBgColor={noteBgColor}
+                    setNoteBgColor={setNoteBgColor}
+                    tag={tag}
+                    setTag={setTag}
+                    noteTag={noteTag}
+                    setNoteTag={setNoteTag}
+                    checked={checked}
+                    setChecked={setChecked}
+                />
 
-                    <Button
-                        onClick={addNoteHandler}
-                        className={classes.closeCreateNote}
-                    >
-                        Add
-                    </Button>
-                </div>
-            </Card>
-            <FormReminder
-                closeFormHandler={closeFormHandler}
-                toggleAlert={toggleAlert}
-            />
-            <FormColor
-                closeFormHandler={closeFormHandler}
-                noteBgColor={noteBgColor}
-                setNoteBgColor={setNoteBgColor}
-            />
-            <FormTag
-                closeFormHandler={closeFormHandler}
-                tag={tag}
-                setTag={setTag}
-                noteTag={noteTag}
-                setNoteTag={setNoteTag}
-                checked={checked}
-                setChecked={setChecked}
-            />
-        </div>
+                <Button
+                    onClick={addNoteHandler}
+                    className={classes.closeCreateNote}
+                >
+                    Add
+                </Button>
+            </div>
+        </Card>
     );
 };
 
