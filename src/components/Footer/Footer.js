@@ -14,9 +14,10 @@ import {
     PaletteOutlined,
     MoveToInboxOutlined,
     LabelOutlined,
+    MoreVertOutlined,
 } from "@material-ui/icons";
 
-const Footer = () => {
+const Footer = ({ menuIcon }) => {
     const classes = useStyles();
 
     //Footer icons
@@ -25,7 +26,13 @@ const Footer = () => {
         { name: "color", icon: <PaletteOutlined /> },
         { name: "archive", icon: <MoveToInboxOutlined /> },
         { name: "tag", icon: <LabelOutlined /> },
+        { name: "menu", icon: <MoreVertOutlined /> },
     ];
+
+    if (menuIcon === false) {
+        const length = createNoteIcons.length;
+        delete createNoteIcons[length - 1];
+    }
 
     const openFormHandler = (e) => {
         switch (e.currentTarget.getAttribute("name")) {

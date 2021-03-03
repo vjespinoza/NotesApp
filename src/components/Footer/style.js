@@ -8,7 +8,8 @@ const useStyles = makeStyles({
     },
     createNoteIcons: {
         display: "flex",
-        justifyItems: "space-between",
+        width: "100%",
+        justifyContent: "space-between",
         alignItems: "center",
         "& span": {
             display: "none",
@@ -18,7 +19,6 @@ const useStyles = makeStyles({
         display: "block",
         padding: 0,
         width: 20,
-        marginRight: "2rem",
     },
     icon: {
         cursor: "pointer",

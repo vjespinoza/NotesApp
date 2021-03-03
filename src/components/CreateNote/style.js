@@ -21,18 +21,18 @@ const useStyles = makeStyles({
             },
         },
     },
-    focusHighlight: {
-        cursor: "default",
-        backgroundColor: "transparent",
-        background: "transparent",
-        color: "transparent",
-        "&:hover": {
-            cursor: "default",
-            backgroundColor: "transparent",
-            background: "transparent",
-            color: "transparent",
-        },
-    },
+    // focusHighlight: {
+    //     cursor: "default",
+    //     backgroundColor: "transparent",
+    //     background: "transparent",
+    //     color: "transparent",
+    //     "&:hover": {
+    //         cursor: "default",
+    //         backgroundColor: "transparent",
+    //         background: "transparent",
+    //         color: "transparent",
+    //     },
+    // },
     noteTitle: {
         // display: "none",
         display: "flex",
@@ -67,6 +67,7 @@ const useStyles = makeStyles({
 
     closeCreateNote: {
         fontSize: 12,
+        marginLeft: "40%",
     },
 });
 
