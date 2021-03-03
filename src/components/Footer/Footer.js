@@ -17,7 +17,7 @@ import {
     MoreVertOutlined,
 } from "@material-ui/icons";
 
-const Footer = ({ menuIcon }) => {
+const Footer = ({ menuIcon, originNote, originCreateNote }) => {
     const classes = useStyles();
 
     //Footer icons
@@ -28,34 +28,19 @@ const Footer = ({ menuIcon }) => {
         { name: "tag", icon: <LabelOutlined /> },
         { name: "menu", icon: <MoreVertOutlined /> },
     ];
-
+    //Conditionally displays menu icon
     if (menuIcon === false) {
         const length = createNoteIcons.length;
         delete createNoteIcons[length - 1];
     }
-
+    //Opens forms (Reminder, color, tags)
     const openFormHandler = (e) => {
-        switch (e.currentTarget.getAttribute("name")) {
-            case "alert":
-                document.getElementById("formReminder").style.display = "flex";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
-            case "color":
-                document.getElementById("formColor").style.display = "flex";
-                document.getElementById("formReminder").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
-            case "tag":
-                document.getElementById("formTag").style.display = "flex";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formReminder").style.display = "none";
-                break;
-            default:
-                document.getElementById("formReminder").style.display = "none";
-                document.getElementById("formColor").style.display = "none";
-                document.getElementById("formTag").style.display = "none";
-                break;
+        const butonName = e.currentTarget.getAttribute("name");
+
+        if (originNote === true) {
+            console.log("i come from Note", butonName);
+        } else if (originCreateNote === true) {
+            console.log("i come from CreateNote", butonName);
         }
     };
 

@@ -58,7 +58,7 @@ const CreateNote = ({
                     id="toggleFooterDisplay"
                     className={classes.createNoteFooter}
                 >
-                    <Footer menuIcon={false} />
+                    <Footer menuIcon={false} originCreateNote={true} />
 
                     <Button
                         onClick={addNoteHandler}

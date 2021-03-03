@@ -123,7 +123,7 @@ const Note = ({
                 ))}
             </Container>
             <Container id="noteFooter" className={classes.noteFooter}>
-                <Footer />
+                <Footer originNote={true} />
             </Container>
         </Card>
     );
