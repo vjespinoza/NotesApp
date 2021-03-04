@@ -24,8 +24,7 @@ import {
 const Footer = ({
     notes,
     menuIcon,
-    originNote,
-    originCreateNote,
+    uniqueID,
     closeFormHandler,
     toggleAlert,
     noteBgColor,
@@ -57,28 +56,13 @@ const Footer = ({
     const openFormHandler = (e) => {
         const buttonName = e.currentTarget.getAttribute("name");
 
-        //With this same function I can set the positioning of the forms
-        //depending on 'origin'
-        if (originNote === true && buttonName === "alert") {
-            console.log(e.currentTarget.closest("#note1")); //Promising
-            console.log("i come from Note", buttonName);
-        } else if (originNote === true && buttonName === "color") {
-            console.log("i come from Note", buttonName);
-        } else if (originNote === true && buttonName === "archive") {
-            console.log("i come from Note", buttonName);
-        } else if (originNote === true && buttonName === "tag") {
-            console.log("i come from Note", buttonName);
-        }
-
-        if (originCreateNote === true && buttonName === "alert") {
-            console.log("i come from CreateNote", buttonName);
-        } else if (originCreateNote === true && buttonName === "color") {
-            console.log("i come from CreateNote", buttonName);
-        } else if (originCreateNote === true && buttonName === "archive") {
-            console.log("i come from CreateNote", buttonName);
-        } else if (originCreateNote === true && buttonName === "tag") {
-            console.log("i come from CreateNote", buttonName);
-        }
+        // if (origin === "noteComp") {
+        //     for (let i = 0; i < notesLength; i++) {
+        //         console.log(origin);
+        //         console.log(buttonName);
+        //         console.log(e.currentTarget.closest(`#note${i}`));
+        //     }
+        // }
     };
 
     return (
@@ -111,7 +95,9 @@ const Footer = ({
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
             />
+
             <FormTag
+                uniqueID={uniqueID}
                 notes={notes}
                 closeFormHandler={closeFormHandler}
                 tag={tag}

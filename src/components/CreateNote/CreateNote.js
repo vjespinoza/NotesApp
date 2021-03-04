@@ -55,7 +55,7 @@ const CreateNote = ({
                     <Footer
                         notes={notes}
                         menuIcon={false}
-                        originCreateNote={true}
+                        uniqueID={true}
                         closeFormHandler={closeFormHandler}
                         toggleAlert={toggleAlert}
                         noteBgColor={noteBgColor}

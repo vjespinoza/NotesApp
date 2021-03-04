@@ -36,7 +36,7 @@ const Note = ({
         noteCopy.reminder.date = "";
         noteCopy.reminder.time = "";
         //Replaces original note values with the copy's values
-        notes[closeIconID] = noteCopy;
+        notes[closeIconID] = noteCopy; // This may be wrong! State is mutating.
         //Sets note's reminder object new state
         if (closeIconID === id) {
             setNotes([...notes]);
@@ -129,7 +129,7 @@ const Note = ({
             <div className={classes.footerWrapper}>
                 <Container id="noteFooter" className={classes.noteFooter}>
                     <Footer
-                        originNote={true}
+                        uniqueID={false}
                         notes={notes}
                         tag={tag}
                         setTag={setTag}

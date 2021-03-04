@@ -23,9 +23,10 @@ const FormTags = ({
     setChecked,
     setNoteTag,
     closeFormHandler,
+    uniqueID,
 }) => {
     const classes = useStyles();
-
+    console.log(uniqueID);
     const [query, setQuery] = useState("");
 
     const tags = tag;
@@ -56,7 +57,7 @@ const FormTags = ({
 
     return (
         <Card
-            id="formTag"
+            id={"formTag"}
             className={classes.formTag}
             // onMouseLeave={closeFormHandler}
         >
@@ -65,7 +66,7 @@ const FormTags = ({
             </Typography>
             <FormControl>
                 <Input
-                    id="inputTag"
+                    id={"inputTag"}
                     className={classes.formInput}
                     type="text"
                     onChange={getNewTag}
