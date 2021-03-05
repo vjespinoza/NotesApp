@@ -23,9 +23,9 @@ import {
 
 const Footer = ({
     notes,
-    menuIcon,
+    footerID,
     uniqueID,
-    closeFormHandler,
+    menuIcon,
     toggleAlert,
     noteBgColor,
     setNoteBgColor,
@@ -55,18 +55,44 @@ const Footer = ({
     //Opens forms (Reminder, color, tags)
     const openFormHandler = (e) => {
         const buttonName = e.currentTarget.getAttribute("name");
+        const footerId = e.currentTarget.closest("[id]").id.slice(6);
+        // const targetElement = e.currentTarget.name;
+        // console.log(targetElement);
 
-        // if (origin === "noteComp") {
-        //     for (let i = 0; i < notesLength; i++) {
-        //         console.log(origin);
-        //         console.log(buttonName);
-        //         console.log(e.currentTarget.closest(`#note${i}`));
-        //     }
-        // }
+        if (uniqueID === true) {
+            if (buttonName === "alert") {
+                document.getElementById(`formReminder`).style.display = "flex";
+            } else if (buttonName === "color") {
+                document.getElementById(`formColor`).style.display = "flex";
+            } else if (buttonName === "tag") {
+                document.getElementById(`formTag`).style.display = "flex";
+            }
+        } else {
+            if (buttonName === "alert") {
+                document.getElementById(
+                    `formReminder_footer${footerId}`
+                ).style.display = "flex";
+            } else if (buttonName === "color") {
+                document.getElementById(
+                    `formColor_footer${footerId}`
+                ).style.display = "flex";
+            } else if (buttonName === "tag") {
+                document.getElementById(
+                    `formTag_footer${footerId}`
+                ).style.display = "flex";
+            }
+        }
+    };
+
+    const closeFormHandler = (e) => {
+        e.currentTarget.style.display = "none";
+        // document.getElementById("formColor").style.display = "none";
+        // document.getElementById("formTag").style.display = "none";
+        // document.getElementById("formReminder").style.display = "none";
     };
 
     return (
-        <div className={classes.footer}>
+        <div id={footerID} className={classes.footer}>
             <CardActionArea disableRipple={true}>
                 <List className={classes.createNoteIcons}>
                     {createNoteIcons.map((icon, index) => (
@@ -87,17 +113,21 @@ const Footer = ({
                 </List>
             </CardActionArea>
             <FormReminder
+                uniqueID={uniqueID}
+                footerID={footerID}
                 closeFormHandler={closeFormHandler}
                 toggleAlert={toggleAlert}
             />
             <FormColor
+                uniqueID={uniqueID}
+                footerID={footerID}
                 closeFormHandler={closeFormHandler}
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
             />
-
             <FormTag
                 uniqueID={uniqueID}
+                footerID={footerID}
                 notes={notes}
                 closeFormHandler={closeFormHandler}
                 tag={tag}

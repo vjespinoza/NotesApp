@@ -129,6 +129,7 @@ const Note = ({
             <div className={classes.footerWrapper}>
                 <Container id="noteFooter" className={classes.noteFooter}>
                     <Footer
+                        footerID={`footer${id}`}
                         uniqueID={false}
                         notes={notes}
                         tag={tag}

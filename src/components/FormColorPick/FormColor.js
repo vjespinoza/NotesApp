@@ -10,7 +10,13 @@ import {
 } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-const FormColor = ({ closeFormHandler, noteBgColor, setNoteBgColor }) => {
+const FormColor = ({
+    closeFormHandler,
+    noteBgColor,
+    setNoteBgColor,
+    footerID,
+    uniqueID,
+}) => {
     const classes = useStyles();
 
     const colorPalette = [
@@ -34,7 +40,7 @@ const FormColor = ({ closeFormHandler, noteBgColor, setNoteBgColor }) => {
 
     return (
         <Card
-            id="formColor"
+            id={uniqueID === false ? `formColor_${footerID}` : "formColor"}
             className={classes.colorForm}
             onMouseLeave={closeFormHandler}
         >

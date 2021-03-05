@@ -8,7 +8,12 @@ import {
     Button,
 } from "@material-ui/core";
 
-const FormReminder = ({ toggleAlert, closeFormHandler }) => {
+const FormReminder = ({
+    toggleAlert,
+    closeFormHandler,
+    footerID,
+    uniqueID,
+}) => {
     const classes = useStyles();
 
     const defaultDate = () => {
@@ -41,7 +46,9 @@ const FormReminder = ({ toggleAlert, closeFormHandler }) => {
 
     return (
         <Card
-            id="formReminder"
+            id={
+                uniqueID === false ? `formReminder_${footerID}` : "formReminder"
+            }
             className={classes.reminderForm}
             onMouseLeave={closeFormHandler}
         >
@@ -52,7 +59,7 @@ const FormReminder = ({ toggleAlert, closeFormHandler }) => {
                 <Input
                     className={classes.input}
                     type="date"
-                    id="date"
+                    id={uniqueID === false ? `date_${footerID}` : "date"}
                     defaultValue={defaultDate()}
                 ></Input>
             </FormControl>
@@ -60,7 +67,7 @@ const FormReminder = ({ toggleAlert, closeFormHandler }) => {
                 <Input
                     className={classes.input}
                     type="time"
-                    id="time"
+                    id={uniqueID === false ? `time_${footerID}` : "time"}
                     defaultValue={defaultTime()}
                 ></Input>
             </FormControl>

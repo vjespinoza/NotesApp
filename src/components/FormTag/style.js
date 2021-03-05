@@ -12,7 +12,6 @@ const useStyles = makeStyles({
         zIndex: 10,
         top: "100%",
         left: "20px",
-        background: "purple",
     },
     formTitle: {
         textAlign: "left",

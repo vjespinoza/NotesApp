@@ -7,7 +7,7 @@ const useStyles = makeStyles({
         width: "30vw",
         minWidth: "20rem",
         margin: "50px auto 70px auto",
-        padding: "20px 25px",
+        padding: "10px 15px",
         "&:focus-within": {
             "& #toggleTitleDisplay": {
                 display: "flex",
@@ -52,6 +52,7 @@ const useStyles = makeStyles({
     innerWrap: {
         width: "50%",
         minWidth: "12rem",
+        alignSelf: "center",
     },
     closeCreateNote: {
         fontSize: 12,

@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     },
     noteFooter: {
         position: "absolute",
-        bottom: -5,
+        bottom: -2,
         left: 0,
         // transform: "scale(0)",
         // transformOrigin: "left",

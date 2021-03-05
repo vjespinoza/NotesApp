@@ -22,12 +22,6 @@ const CreateNote = ({
 }) => {
     const classes = useStyles();
 
-    const closeFormHandler = () => {
-        document.getElementById("formColor").style.display = "none";
-        document.getElementById("formTag").style.display = "none";
-        document.getElementById("formReminder").style.display = "none";
-    };
-
     return (
         <Card className={classes.createNoteWrapper}>
             <div className={classes.noteTitle} id="toggleTitleDisplay">
@@ -56,7 +50,6 @@ const CreateNote = ({
                         notes={notes}
                         menuIcon={false}
                         uniqueID={true}
-                        closeFormHandler={closeFormHandler}
                         toggleAlert={toggleAlert}
                         noteBgColor={noteBgColor}
                         setNoteBgColor={setNoteBgColor}

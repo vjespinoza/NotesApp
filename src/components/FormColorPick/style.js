@@ -8,6 +8,7 @@ const useStyles = makeStyles({
         height: "fit-content",
         padding: "0.8rem",
         position: "absolute",
+        zIndex: 10,
         top: "calc(100% - 70px)",
         left: "4rem",
     },

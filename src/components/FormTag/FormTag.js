@@ -17,16 +17,17 @@ import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 
 const FormTags = ({
     notes,
+    footerID,
+    uniqueID,
     tag,
     setTag,
     checked,
     setChecked,
     setNoteTag,
     closeFormHandler,
-    uniqueID,
 }) => {
     const classes = useStyles();
-    console.log(uniqueID);
+
     const [query, setQuery] = useState("");
 
     const tags = tag;
@@ -57,7 +58,7 @@ const FormTags = ({
 
     return (
         <Card
-            id={"formTag"}
+            id={uniqueID === false ? `formTag_${footerID}` : "formTag"}
             className={classes.formTag}
             // onMouseLeave={closeFormHandler}
         >
@@ -66,7 +67,9 @@ const FormTags = ({
             </Typography>
             <FormControl>
                 <Input
-                    id={"inputTag"}
+                    id={
+                        uniqueID === false ? `inputTag_${footerID}` : "inputTag"
+                    }
                     className={classes.formInput}
                     type="text"
                     onChange={getNewTag}
@@ -103,7 +106,9 @@ const FormTags = ({
                                     checked={checked.indexOf(value) !== -1}
                                     tabIndex={-1}
                                     disableRipple
-                                    inputProps={{ "aria-labelledby": labelId }}
+                                    inputProps={{
+                                        "aria-labelledby": labelId,
+                                    }}
                                 />
                             </ListItemIcon>
                             <ListItemText id={labelId} primary={value} />
