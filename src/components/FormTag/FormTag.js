@@ -60,7 +60,7 @@ const FormTags = ({
         <Card
             id={uniqueID === false ? `formTag_${footerID}` : "formTag"}
             className={classes.formTag}
-            // onMouseLeave={closeFormHandler}
+            onMouseLeave={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Tag note:

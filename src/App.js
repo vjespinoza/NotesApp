@@ -25,11 +25,39 @@ function App() {
         localStorage.setItem("tag", JSON.stringify(tag));
     }, [notes, tag]);
 
+    const test = (e) => {
+        const notesList = Array.from(e.currentTarget.children[1].children);
+
+        const footerList = notesList.map((footer) => {
+            return Array.from(footer.lastChild.children);
+        });
+        console.log(footerList);
+
+        const formList = footerList.map((forms) => {
+            return Array.from(forms[0].children[0].children);
+        });
+
+        const forms = [];
+        //Not there yet
+        forms.push(
+            formList[1][1].id,
+            formList[1][2].id,
+            formList[1][3].id,
+            formList[2][1].id,
+            formList[2][2].id,
+            formList[2][3].id,
+            formList[3][1].id,
+            formList[3][2].id,
+            formList[3][3].id
+        );
+    };
+
     return (
         <div className={classes.app}>
-            <NavBar />
-            <Sidebar />
+            <NavBar test={test} />
+            <Sidebar test={test} />
             <Dashboard
+                test={test}
                 notes={notes}
                 setNotes={setNotes}
                 noteAlert={noteAlert}

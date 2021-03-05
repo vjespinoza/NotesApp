@@ -86,6 +86,7 @@ const Footer = ({
 
     const closeFormHandler = (e) => {
         e.currentTarget.style.display = "none";
+        console.log(e.currentTarget);
         // document.getElementById("formColor").style.display = "none";
         // document.getElementById("formTag").style.display = "none";
         // document.getElementById("formReminder").style.display = "none";
