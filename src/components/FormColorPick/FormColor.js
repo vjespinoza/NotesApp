@@ -42,7 +42,7 @@ const FormColor = ({
         <Card
             id={uniqueID === false ? `formColor_${footerID}` : "formColor"}
             className={classes.colorForm}
-            onMouseLeave={closeFormHandler}
+            // onClick={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Colors:

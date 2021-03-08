@@ -20,7 +20,7 @@ import {
     DeleteOutlined,
 } from "@material-ui/icons";
 
-const Sidebar = ({ test }) => {
+const Sidebar = () => {
     const classes = useStyles();
     const sideBarItems = [
         {
@@ -51,7 +51,6 @@ const Sidebar = ({ test }) => {
 
     return (
         <Drawer
-            onClick={test}
             variant="permanent"
             className={classes.drawer}
             classes={{

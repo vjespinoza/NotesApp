@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import useStyles from "./style";
 import {
     FormControl,
@@ -15,6 +15,11 @@ const FormReminder = ({
     uniqueID,
 }) => {
     const classes = useStyles();
+
+    const domRef = useRef(null);
+    useEffect(() => {
+        console.log(domRef.current);
+    });
 
     const defaultDate = () => {
         const todayDate = new Date();
@@ -46,11 +51,12 @@ const FormReminder = ({
 
     return (
         <Card
+            ref={domRef}
             id={
                 uniqueID === false ? `formReminder_${footerID}` : "formReminder"
             }
             className={classes.reminderForm}
-            onMouseLeave={closeFormHandler}
+            // onClick={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Reminder:

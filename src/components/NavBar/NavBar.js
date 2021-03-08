@@ -13,11 +13,11 @@ import {
     Avatar,
 } from "@material-ui/core";
 
-const NavBar = ({ test }) => {
+const NavBar = () => {
     const classes = useStyles();
 
     return (
-        <AppBar onClick={test} position="fixed" color="primary">
+        <AppBar position="fixed" color="primary">
             <Container className={classes.navBar}>
                 <Grid className={classes.navBarLeft}>
                     <Menu cursor="pointer" className={classes.icon}></Menu>

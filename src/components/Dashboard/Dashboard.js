@@ -7,7 +7,6 @@ import NotesList from "../NotesList/NotesList";
 import CreateNoteContainer from "../CreateNote/CreateNoteContainer";
 
 const Dashboard = ({
-    test,
     notes,
     setNotes,
     noteAlert,
@@ -24,7 +23,7 @@ const Dashboard = ({
     const classes = useStyles();
 
     return (
-        <main onClick={test} className={classes.dashboardPosition}>
+        <main id="dashboard" className={classes.dashboardPosition}>
             <Container color="primary" className={classes.createNoteContainer}>
                 <CreateNoteContainer
                     notes={notes}

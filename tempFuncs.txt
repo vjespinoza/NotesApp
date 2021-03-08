@@ -41,3 +41,32 @@
     //     "#e6c9a8",
     //     "#e8eaed",
     // ];
+
+    //From App.js
+    const test = (e) => {
+        const notesList = Array.from(e.currentTarget.children[1].children);
+
+        const footerList = notesList.map((footer) => {
+            return Array.from(footer.lastChild.children);
+        });
+
+        const formList = footerList.map((forms) => {
+            return Array.from(forms[0].children[0].children);
+        });
+
+        const formID = [];
+
+        formList.map((form) => {
+            return formID.push(form[1].id, form[2].id, form[3].id);
+        });
+
+        setFormDisplay((formDisplay) => !formDisplay);
+
+        formID.map((item) => {
+            // return formDisplay === false
+            // ? document.getElementById(item).style.display === "none"
+            // : document.getElementById(item).style.display === "flex";
+
+            console.log(document.getElementById(item).style);
+        });
+    };

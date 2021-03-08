@@ -56,10 +56,9 @@ const Footer = ({
     const openFormHandler = (e) => {
         const buttonName = e.currentTarget.getAttribute("name");
         const footerId = e.currentTarget.closest("[id]").id.slice(6);
-        // const targetElement = e.currentTarget.name;
-        // console.log(targetElement);
 
         if (uniqueID === true) {
+            //Open CreateNote component forms
             if (buttonName === "alert") {
                 document.getElementById(`formReminder`).style.display = "flex";
             } else if (buttonName === "color") {
@@ -68,6 +67,7 @@ const Footer = ({
                 document.getElementById(`formTag`).style.display = "flex";
             }
         } else {
+            //Open Footer components forms
             if (buttonName === "alert") {
                 document.getElementById(
                     `formReminder_footer${footerId}`
@@ -84,13 +84,9 @@ const Footer = ({
         }
     };
 
-    const closeFormHandler = (e) => {
-        e.currentTarget.style.display = "none";
-        console.log(e.currentTarget);
-        // document.getElementById("formColor").style.display = "none";
-        // document.getElementById("formTag").style.display = "none";
-        // document.getElementById("formReminder").style.display = "none";
-    };
+    // const closeFormHandler = (e) => {
+    //     console.log(e.currentTarget);
+    // };
 
     return (
         <div id={footerID} className={classes.footer}>
@@ -116,13 +112,13 @@ const Footer = ({
             <FormReminder
                 uniqueID={uniqueID}
                 footerID={footerID}
-                closeFormHandler={closeFormHandler}
+                // closeFormHandler={closeFormHandler}
                 toggleAlert={toggleAlert}
             />
             <FormColor
                 uniqueID={uniqueID}
                 footerID={footerID}
-                closeFormHandler={closeFormHandler}
+                // closeFormHandler={closeFormHandler}
                 noteBgColor={noteBgColor}
                 setNoteBgColor={setNoteBgColor}
             />
@@ -130,7 +126,7 @@ const Footer = ({
                 uniqueID={uniqueID}
                 footerID={footerID}
                 notes={notes}
-                closeFormHandler={closeFormHandler}
+                // closeFormHandler={closeFormHandler}
                 tag={tag}
                 setTag={setTag}
                 noteTag={noteTag}
