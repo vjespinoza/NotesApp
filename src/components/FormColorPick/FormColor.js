@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import useStyles from "./style";
 import {
     FormControl,
@@ -34,12 +35,17 @@ const FormColor = ({
         "#d1c7c9",
     ];
 
+    const domRef = useRef(null);
+
+    useClickOutside(domRef);
+
     const handleColorChange = (e) => {
         setNoteBgColor(e.target.value);
     };
 
     return (
         <Card
+            ref={domRef}
             id={uniqueID === false ? `formColor_${footerID}` : "formColor"}
             className={classes.colorForm}
             // onClick={closeFormHandler}

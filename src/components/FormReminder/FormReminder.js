@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import useStyles from "./style";
 import {
     FormControl,
@@ -17,9 +18,8 @@ const FormReminder = ({
     const classes = useStyles();
 
     const domRef = useRef(null);
-    useEffect(() => {
-        console.log(domRef.current);
-    });
+
+    useClickOutside(domRef);
 
     const defaultDate = () => {
         const todayDate = new Date();

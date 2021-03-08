@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import useStyles from "./style";
 import {
     FormControl,
@@ -30,6 +31,10 @@ const FormTags = ({
 
     const [query, setQuery] = useState("");
 
+    const domRef = useRef(null);
+
+    useClickOutside(domRef);
+
     const tags = tag;
 
     const getNewTag = (e) => {
@@ -58,6 +63,7 @@ const FormTags = ({
 
     return (
         <Card
+            ref={domRef}
             id={uniqueID === false ? `formTag_${footerID}` : "formTag"}
             className={classes.formTag}
             // onClick={closeFormHandler}
