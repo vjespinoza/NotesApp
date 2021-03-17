@@ -4,6 +4,9 @@ import useStyles from "./style";
 import { Card, InputBase, Button } from "@material-ui/core";
 //Components
 import Footer from "../Footer/Footer";
+import FormTag from "../FormTag/FormTag";
+import FormColor from "../FormColorPick/FormColor";
+import FormReminder from "../FormReminder/FormReminder";
 
 const CreateNote = ({
     notes,
@@ -50,7 +53,6 @@ const CreateNote = ({
                         notes={notes}
                         menuIcon={false}
                         uniqueID={true}
-                        toggleAlert={toggleAlert}
                         noteBgColor={noteBgColor}
                         setNoteBgColor={setNoteBgColor}
                         tag={tag}
@@ -69,6 +71,22 @@ const CreateNote = ({
                     Add
                 </Button>
             </div>
+            <FormReminder uniqueID={true} toggleAlert={toggleAlert} />
+            <FormColor
+                uniqueID={true}
+                noteBgColor={noteBgColor}
+                setNoteBgColor={setNoteBgColor}
+            />
+            <FormTag
+                uniqueID={true}
+                notes={notes}
+                tag={tag}
+                setTag={setTag}
+                noteTag={noteTag}
+                setNoteTag={setNoteTag}
+                checked={checked}
+                setChecked={setChecked}
+            />
         </Card>
     );
 };

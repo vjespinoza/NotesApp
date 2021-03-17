@@ -7,6 +7,9 @@ import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsAct
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 //Components
 import Footer from "../Footer/Footer";
+import FormTag from "../FormTag/FormTag";
+import FormColor from "../FormColorPick/FormColor";
+import FormReminder from "../FormReminder/FormReminder";
 
 const Note = ({
     notes,
@@ -23,6 +26,10 @@ const Note = ({
     setTag,
     checked,
     setChecked,
+    noteBgColor,
+    setNoteBgColor,
+    noteTag,
+    setNoteTag,
 }) => {
     const classes = useStyles();
     //Delete Alert Badge
@@ -126,19 +133,27 @@ const Note = ({
                     ></Chip>
                 ))}
             </Container>
-            <div className={classes.footerWrapper}>
-                <Container id="noteFooter" className={classes.noteFooter}>
-                    <Footer
-                        footerID={`footer${id}`}
-                        uniqueID={false}
-                        notes={notes}
-                        tag={tag}
-                        setTag={setTag}
-                        checked={checked}
-                        setChecked={setChecked}
-                    />
-                </Container>
-            </div>
+            <Container className={classes.noteFooter}>
+                <Footer footerID={`footer${id}`} />
+            </Container>
+            {/* <FormReminder uniqueID={false} toggleAlert={toggleAlert} /> */}
+
+            <FormReminder uniqueID={false} />
+            <FormColor
+                uniqueID={false}
+                noteBgColor={noteBgColor}
+                setNoteBgColor={setNoteBgColor}
+            />
+            <FormTag
+                uniqueID={false}
+                notes={notes}
+                tag={tag}
+                setTag={setTag}
+                noteTag={noteTag}
+                setNoteTag={setNoteTag}
+                checked={checked}
+                setChecked={setChecked}
+            />
         </Card>
     );
 };

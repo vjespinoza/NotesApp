@@ -3,7 +3,18 @@ import Note from "../Note/Note";
 import { Container } from "@material-ui/core";
 import useStyles from "./style";
 
-const NotesList = ({ notes, setNotes, tag, setTag, checked, setChecked }) => {
+const NotesList = ({
+    notes,
+    setNotes,
+    tag,
+    setTag,
+    checked,
+    setChecked,
+    noteBgColor,
+    setNoteBgColor,
+    noteTag,
+    setNoteTag,
+}) => {
     const classes = useStyles();
 
     if (notes.length > 0) {
@@ -25,6 +36,10 @@ const NotesList = ({ notes, setNotes, tag, setTag, checked, setChecked }) => {
                             tags={note.tags}
                             tag={tag}
                             setTag={setTag}
+                            noteBgColor={noteBgColor}
+                            setNoteBgColor={setNoteBgColor}
+                            noteTag={noteTag}
+                            setNoteTag={setNoteTag}
                             checked={checked}
                             setChecked={setChecked}
                         />

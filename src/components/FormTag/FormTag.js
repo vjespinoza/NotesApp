@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import useClickOutside from "../../hooks/useClickOutside";
 import useStyles from "./style";
 import {
     FormControl,
@@ -17,7 +16,6 @@ import {
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 
 const FormTags = ({
-    notes,
     footerID,
     uniqueID,
     tag,
@@ -25,15 +23,14 @@ const FormTags = ({
     checked,
     setChecked,
     setNoteTag,
-    closeFormHandler,
 }) => {
     const classes = useStyles();
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const [query, setQuery] = useState("");
 
     const domRef = useRef(null);
-
-    useClickOutside(domRef);
 
     const tags = tag;
 
@@ -65,8 +62,11 @@ const FormTags = ({
         <Card
             ref={domRef}
             id={uniqueID === false ? `formTag_${footerID}` : "formTag"}
+            style={{
+                opacity: isOpen === true ? 1 : 0,
+                visibility: isOpen === true ? "visible" : "hidden",
+            }}
             className={classes.formTag}
-            // onClick={closeFormHandler}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Tag note:

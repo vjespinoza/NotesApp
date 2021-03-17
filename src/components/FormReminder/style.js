@@ -2,15 +2,15 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     reminderForm: {
-        display: "none",
+        display: "flex",
         flexDirection: "column",
         width: "10rem",
         height: "fit-content",
         padding: "0.8rem",
         position: "absolute",
         zIndex: 10,
-        top: "calc(100% - 70px)",
-        left: "0.5rem",
+        top: "100%",
+        left: "1.5rem",
     },
     formTitle: {
         textAlign: "left",

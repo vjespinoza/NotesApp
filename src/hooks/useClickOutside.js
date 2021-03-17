@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 
-const useClickOutside = (element) => {
+const useClickOutside = (element, handler) => {
     useEffect(() => {
-        const test = (e) => {
-            if (element.current.contains(e.target)) {
-                console.log("yes");
-            } else {
-                console.log("no");
+        const handleClickOutside = (e) => {
+            if (!element.current.contains(e.target)) {
+                handler();
             }
         };
-        document.addEventListener("mousedown", test);
-    }, [element]);
+
+        document.addEventListener("mousedown", handleClickOutside);
+    }, [element, handler]);
 };
 
 export default useClickOutside;

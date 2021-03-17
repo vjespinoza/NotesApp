@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import useStyles from "./style";
-//Components
-import FormReminder from "../FormReminder/FormReminder";
-import FormColor from "../FormColorPick/FormColor";
-import FormTag from "../FormTag/FormTag";
 //Material UI elements
 import {
     CardActionArea,
@@ -21,22 +17,10 @@ import {
     MoreVertOutlined,
 } from "@material-ui/icons";
 
-const Footer = ({
-    notes,
-    footerID,
-    uniqueID,
-    menuIcon,
-    toggleAlert,
-    noteBgColor,
-    setNoteBgColor,
-    tag,
-    setTag,
-    noteTag,
-    setNoteTag,
-    checked,
-    setChecked,
-}) => {
+const Footer = ({ footerID, menuIcon }) => {
     const classes = useStyles();
+
+    const [isOpen, setIsOpen] = useState(false);
 
     //Footer icons
     const createNoteIcons = [
@@ -53,40 +37,24 @@ const Footer = ({
     }
 
     //Opens forms (Reminder, color, tags)
-    const openFormHandler = (e) => {
-        const buttonName = e.currentTarget.getAttribute("name");
-        const footerId = e.currentTarget.closest("[id]").id.slice(6);
-
-        if (uniqueID === true) {
-            //Open CreateNote component forms
-            if (buttonName === "alert") {
-                document.getElementById(`formReminder`).style.display = "flex";
-            } else if (buttonName === "color") {
-                document.getElementById(`formColor`).style.display = "flex";
-            } else if (buttonName === "tag") {
-                document.getElementById(`formTag`).style.display = "flex";
-            }
-        } else {
-            //Open Footer components forms
-            if (buttonName === "alert") {
-                document.getElementById(
-                    `formReminder_footer${footerId}`
-                ).style.display = "flex";
-            } else if (buttonName === "color") {
-                document.getElementById(
-                    `formColor_footer${footerId}`
-                ).style.display = "flex";
-            } else if (buttonName === "tag") {
-                document.getElementById(
-                    `formTag_footer${footerId}`
-                ).style.display = "flex";
-            }
-        }
+    const toggleOpen = () => {
+        setIsOpen((isOpen) => !isOpen);
     };
 
-    // const closeFormHandler = (e) => {
-    //     console.log(e.currentTarget);
-    // };
+    const buttonCoordinates = (e) => {
+        let btnHeight = e.currentTarget.clientHeight;
+        let btnWidth = e.currentTarget.clientWidth;
+        let topDistance = e.clientY;
+        let leftDistance = e.clientX;
+
+        let absoluteTop = topDistance + btnHeight;
+        let absoluteLeft = leftDistance + btnWidth;
+
+        // console.log(btnHeight, btnWidth);
+        // console.log(topDistance, leftDistance);
+        // console.log(absoluteTop, absoluteLeft);
+        return { top: absoluteTop, left: absoluteLeft };
+    };
 
     return (
         <div id={footerID} className={classes.footer}>
@@ -100,7 +68,8 @@ const Footer = ({
                             key={index}
                             // id={`${icon.name}${index}`}
                             name={icon.name}
-                            onClick={openFormHandler}
+                            onClick={toggleOpen}
+                            onMouseDown={buttonCoordinates}
                         >
                             <ListItemIcon className={classes.icon}>
                                 {icon.icon}
@@ -109,31 +78,6 @@ const Footer = ({
                     ))}
                 </List>
             </CardActionArea>
-            <FormReminder
-                uniqueID={uniqueID}
-                footerID={footerID}
-                // closeFormHandler={closeFormHandler}
-                toggleAlert={toggleAlert}
-            />
-            <FormColor
-                uniqueID={uniqueID}
-                footerID={footerID}
-                // closeFormHandler={closeFormHandler}
-                noteBgColor={noteBgColor}
-                setNoteBgColor={setNoteBgColor}
-            />
-            <FormTag
-                uniqueID={uniqueID}
-                footerID={footerID}
-                notes={notes}
-                // closeFormHandler={closeFormHandler}
-                tag={tag}
-                setTag={setTag}
-                noteTag={noteTag}
-                setNoteTag={setNoteTag}
-                checked={checked}
-                setChecked={setChecked}
-            />
         </div>
     );
 };

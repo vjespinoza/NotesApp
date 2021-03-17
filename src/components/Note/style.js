@@ -2,13 +2,13 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
     note: {
-        display: "inline-block",
-        width: "100%",
+        display: "inline-block ",
+        width: "15rem",
         minHeight: "5rem",
-        minWidth: 225,
         padding: "15px 0px 40px 0",
-        marginBottom: "1vw",
+        marginBottom: "0.8rem",
         position: "relative",
+        overflow: "visible",
         // "&:hover": {
         //     "& #noteFooter": {
         //         bottom: -5,
@@ -17,7 +17,6 @@ const useStyles = makeStyles({
         //         transition: "200ms ease-in-out",
         //     },
         // },
-        overflow: "visible",
     },
     noteTitle: {
         fontSize: 16,

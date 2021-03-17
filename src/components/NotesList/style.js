@@ -2,10 +2,10 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     notesListContainer: {
-        columns: "4 225px",
-        gap: "1vw",
+        columns: "6 15rem",
+        columnGap: "0.8rem",
         width: "80%",
-        height: "fit-content",
+        height: "100%",
         position: "relative",
         zIndex: -10,
     },

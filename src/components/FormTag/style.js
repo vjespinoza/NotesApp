@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     formTag: {
-        // display: "flex",
-        display: "none",
+        display: "flex",
+        // display: "none",
         flexDirection: "column",
         width: "12.5rem",
         height: "fit-content",

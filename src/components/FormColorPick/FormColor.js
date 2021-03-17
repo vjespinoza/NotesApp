@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import useClickOutside from "../../hooks/useClickOutside";
+import React, { useState, useRef } from "react";
 import useStyles from "./style";
 import {
     FormControl,
@@ -11,14 +10,10 @@ import {
 } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-const FormColor = ({
-    closeFormHandler,
-    noteBgColor,
-    setNoteBgColor,
-    footerID,
-    uniqueID,
-}) => {
+const FormColor = ({ noteBgColor, setNoteBgColor, footerID, uniqueID }) => {
     const classes = useStyles();
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const colorPalette = [
         "#ffffff",
@@ -37,8 +32,6 @@ const FormColor = ({
 
     const domRef = useRef(null);
 
-    useClickOutside(domRef);
-
     const handleColorChange = (e) => {
         setNoteBgColor(e.target.value);
     };
@@ -48,7 +41,10 @@ const FormColor = ({
             ref={domRef}
             id={uniqueID === false ? `formColor_${footerID}` : "formColor"}
             className={classes.colorForm}
-            // onClick={closeFormHandler}
+            style={{
+                opacity: isOpen === true ? 1 : 0,
+                visibility: isOpen === true ? "visible" : "hidden",
+            }}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Colors:

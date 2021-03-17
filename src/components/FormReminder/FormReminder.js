@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import useClickOutside from "../../hooks/useClickOutside";
+import React, { useState, useRef } from "react";
 import useStyles from "./style";
 import {
     FormControl,
@@ -9,17 +8,12 @@ import {
     Button,
 } from "@material-ui/core";
 
-const FormReminder = ({
-    toggleAlert,
-    closeFormHandler,
-    footerID,
-    uniqueID,
-}) => {
+const FormReminder = ({ toggleAlert, footerID, uniqueID }) => {
     const classes = useStyles();
 
-    const domRef = useRef(null);
+    const [isOpen, setIsOpen] = useState(false);
 
-    useClickOutside(domRef);
+    const domRef = useRef(null);
 
     const defaultDate = () => {
         const todayDate = new Date();
@@ -56,7 +50,10 @@ const FormReminder = ({
                 uniqueID === false ? `formReminder_${footerID}` : "formReminder"
             }
             className={classes.reminderForm}
-            // onClick={closeFormHandler}
+            style={{
+                opacity: isOpen === true ? 1 : 0,
+                visibility: isOpen === true ? "visible" : "hidden",
+            }}
         >
             <Typography className={classes.formTitle} variant="h3">
                 Reminder:
