@@ -8,21 +8,7 @@ import FormTag from "../FormTag/FormTag";
 import FormColor from "../FormColorPick/FormColor";
 import FormReminder from "../FormReminder/FormReminder";
 
-const CreateNote = ({
-    notes,
-    toggleAlert,
-    addNoteHandler,
-    noteTitle,
-    noteContent,
-    noteBgColor,
-    setNoteBgColor,
-    tag,
-    setTag,
-    noteTag,
-    setNoteTag,
-    checked,
-    setChecked,
-}) => {
+const CreateNote = () => {
     const classes = useStyles();
 
     return (
@@ -34,8 +20,6 @@ const CreateNote = ({
                     placeholder="Title..."
                     variant="outlined"
                     multiline={true}
-                    value={notes.value}
-                    onChange={noteTitle}
                 ></InputBase>
             </div>
             <InputBase
@@ -44,49 +28,14 @@ const CreateNote = ({
                 placeholder="Add a new note..."
                 variant="outlined"
                 multiline={true}
-                value={notes.value}
-                onChange={noteContent}
             ></InputBase>
             <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
                 <div className={classes.innerWrap}>
-                    <Footer
-                        notes={notes}
-                        menuIcon={false}
-                        uniqueID={true}
-                        noteBgColor={noteBgColor}
-                        setNoteBgColor={setNoteBgColor}
-                        tag={tag}
-                        setTag={setTag}
-                        noteTag={noteTag}
-                        setNoteTag={setNoteTag}
-                        checked={checked}
-                        setChecked={setChecked}
-                    />
+                    <Footer />
                 </div>
 
-                <Button
-                    onClick={addNoteHandler}
-                    className={classes.closeCreateNote}
-                >
-                    Add
-                </Button>
+                <Button className={classes.closeCreateNote}>Add</Button>
             </div>
-            <FormReminder uniqueID={true} toggleAlert={toggleAlert} />
-            <FormColor
-                uniqueID={true}
-                noteBgColor={noteBgColor}
-                setNoteBgColor={setNoteBgColor}
-            />
-            <FormTag
-                uniqueID={true}
-                notes={notes}
-                tag={tag}
-                setTag={setTag}
-                noteTag={noteTag}
-                setNoteTag={setNoteTag}
-                checked={checked}
-                setChecked={setChecked}
-            />
         </Card>
     );
 };

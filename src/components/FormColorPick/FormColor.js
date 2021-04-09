@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
+//Import styles
 import useStyles from "./style";
+//Import Material UI components & icons
 import {
     FormControl,
     RadioGroup,
@@ -10,42 +12,26 @@ import {
 } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-const FormColor = ({ noteBgColor, setNoteBgColor, footerID, uniqueID }) => {
+const colorPalette = [
+    "#ffffff",
+    "#f28b82",
+    "#fbbc04",
+    "#fff475",
+    "#ccff90",
+    "#a7ffeb",
+    "#4cc9f0",
+    "#aecbfa",
+    "#d7aefb",
+    "#fdcfe8",
+    "#e6c9a8",
+    "#d1c7c9",
+];
+
+const FormColor = () => {
     const classes = useStyles();
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const colorPalette = [
-        "#ffffff",
-        "#f28b82",
-        "#fbbc04",
-        "#fff475",
-        "#ccff90",
-        "#a7ffeb",
-        "#4cc9f0",
-        "#aecbfa",
-        "#d7aefb",
-        "#fdcfe8",
-        "#e6c9a8",
-        "#d1c7c9",
-    ];
-
-    const domRef = useRef(null);
-
-    const handleColorChange = (e) => {
-        setNoteBgColor(e.target.value);
-    };
-
     return (
-        <Card
-            ref={domRef}
-            id={uniqueID === false ? `formColor_${footerID}` : "formColor"}
-            className={classes.colorForm}
-            style={{
-                opacity: isOpen === true ? 1 : 0,
-                visibility: isOpen === true ? "visible" : "hidden",
-            }}
-        >
+        <Card className={classes.colorForm}>
             <Typography className={classes.formTitle} variant="h3">
                 Colors:
             </Typography>
