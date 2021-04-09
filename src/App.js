@@ -9,11 +9,13 @@ import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
     const classes = useStyles();
 
+    const [notes, setNotes] = useState([]);
+
     return (
         <div className={classes.app}>
             <NavBar />
             <Sidebar />
-            <Dashboard />
+            <Dashboard notes={notes} setNotes={setNotes} />
         </div>
     );
 }

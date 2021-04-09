@@ -5,15 +5,15 @@ import useStyles from "./style";
 import NotesList from "../NotesList/NotesList";
 import CreateNote from "../CreateNote/CreateNote";
 
-const Dashboard = () => {
+const Dashboard = ({ notes, setNotes }) => {
     const classes = useStyles();
 
     return (
         <main id="dashboard" className={classes.dashboardPosition}>
             <div color="primary" className={classes.createNoteContainer}>
-                <CreateNote />
+                <CreateNote notes={notes} setNotes={setNotes} />
             </div>
-            <NotesList />
+            <NotesList notes={notes} />
         </main>
     );
 };

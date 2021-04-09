@@ -11,8 +11,10 @@ import FormTag from "../FormTag/FormTag";
 import FormColor from "../FormColorPick/FormColor";
 import FormReminder from "../FormReminder/FormReminder";
 
-const Note = () => {
+const Note = ({ title, body }) => {
     const classes = useStyles();
+
+    // console.log(note.color);
 
     // const alertBadge = (
     //     <Chip
@@ -34,12 +36,12 @@ const Note = () => {
                     align="left"
                     variant="h6"
                 >
-                    'title'
+                    {title}
                 </Typography>
             </Container>
             <Container>
                 <Typography className={classes.noteContent} align="left">
-                    'content'
+                    {body}
                 </Typography>
             </Container>
             {/* <Container>{active === true ? alertBadge : ""}</Container>

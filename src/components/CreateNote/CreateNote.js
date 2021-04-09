@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./style";
 //Material UI elements
 import { Card, InputBase, Button } from "@material-ui/core";
 //Components
 import Footer from "../Footer/Footer";
-import FormTag from "../FormTag/FormTag";
-import FormColor from "../FormColorPick/FormColor";
-import FormReminder from "../FormReminder/FormReminder";
+//Import hooks
+import useCreateNote from "../../hooks/useCreateNote";
+import { Notes } from "@material-ui/icons";
 
-const CreateNote = () => {
+const CreateNote = ({ notes, setNotes }) => {
     const classes = useStyles();
+
+    const [input, setInput] = useState({
+        title: "",
+        body: "",
+    });
+
+    const { note } = useCreateNote("content", input);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setInput({ ...input, [name]: value });
+    };
+
+    const handleClick = () => {
+        setNotes([...notes, note]);
+        setInput({ title: "", body: "" });
+    };
 
     return (
         <Card className={classes.createNoteWrapper}>
@@ -20,21 +38,30 @@ const CreateNote = () => {
                     placeholder="Title..."
                     variant="outlined"
                     multiline={true}
+                    value={input.title}
+                    onChange={handleChange}
                 ></InputBase>
             </div>
             <InputBase
-                name="content"
+                name="body"
                 className={classes.createNoteInput2}
                 placeholder="Add a new note..."
                 variant="outlined"
                 multiline={true}
+                value={input.body}
+                onChange={handleChange}
             ></InputBase>
             <div id="toggleFooterDisplay" className={classes.createNoteFooter}>
                 <div className={classes.innerWrap}>
                     <Footer />
                 </div>
 
-                <Button className={classes.closeCreateNote}>Add</Button>
+                <Button
+                    onClick={handleClick}
+                    className={classes.closeCreateNote}
+                >
+                    Add
+                </Button>
             </div>
         </Card>
     );

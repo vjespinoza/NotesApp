@@ -3,24 +3,26 @@ import Note from "../Note/Note";
 import { Container } from "@material-ui/core";
 import useStyles from "./style";
 
-const NotesList = () => {
+const NotesList = ({ notes }) => {
     const classes = useStyles();
 
-    return <Note />;
-
-    // if (notes.length > 0) {
-    //     return (
-    //         <Container className={classes.notesListContainer}>
-    //             {notes.map((note, index) => {
-    //                 return (
-    //                     <Note />
-    //                 );
-    //             })}
-    //         </Container>
-    //     );
-    // } else {
-    //     return <div></div>;
-    // }
+    if (notes.length > 0) {
+        return (
+            <Container className={classes.notesListContainer}>
+                {notes.map((note) => {
+                    return (
+                        <Note
+                            key={note.id}
+                            title={note.content.title}
+                            body={note.content.body}
+                        />
+                    );
+                })}
+            </Container>
+        );
+    } else {
+        return <div></div>;
+    }
 };
 
 export default NotesList;
