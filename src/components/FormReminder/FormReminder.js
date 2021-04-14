@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 //iImport styles
 import useStyles from "./style";
 //Import Material UI components & icons

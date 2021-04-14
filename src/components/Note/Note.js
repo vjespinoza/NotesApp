@@ -7,26 +7,23 @@ import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsAct
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 //Components
 import Footer from "../Footer/Footer";
-import FormTag from "../FormTag/FormTag";
-import FormColor from "../FormColorPick/FormColor";
-import FormReminder from "../FormReminder/FormReminder";
 
 const Note = ({ title, body }) => {
     const classes = useStyles();
 
     // console.log(note.color);
 
-    // const alertBadge = (
-    //     <Chip
-    //         id={`badge${id}`}
-    //         className={classes.alertBadge}
-    //         icon={<NotificationsActiveOutlinedIcon />}
-    //         size="small"
-    //         onDelete={handleBadgeDelete}
-    //         label={`${activeAlert.date}, ${activeAlert.time}`}
-    //         deleteIcon={<HighlightOffIcon id={`badgeClose${id}`} />}
-    //     ></Chip>
-    // );
+    const alertBadge = (
+        <Chip
+        // id={`badge${id}`}
+        // className={classes.alertBadge}
+        // icon={<NotificationsActiveOutlinedIcon />}
+        // size="small"
+        // onDelete={handleBadgeDelete}
+        // label={`${activeAlert.date}, ${activeAlert.time}`}
+        // deleteIcon={<HighlightOffIcon id={`badgeClose${id}`} />}
+        ></Chip>
+    );
 
     return (
         <Card variant="outlined" className={classes.note}>

@@ -6,7 +6,6 @@ import { Card, InputBase, Button } from "@material-ui/core";
 import Footer from "../Footer/Footer";
 //Import hooks
 import useCreateNote from "../../hooks/useCreateNote";
-import { Notes } from "@material-ui/icons";
 
 const CreateNote = ({ notes, setNotes }) => {
     const classes = useStyles();

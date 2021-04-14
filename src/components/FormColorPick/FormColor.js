@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 //Import styles
 import useStyles from "./style";
 //Import Material UI components & icons
@@ -38,7 +38,7 @@ const FormColor = () => {
             <FormControl>
                 <RadioGroup
                     className={classes.colorList}
-                    value={noteBgColor}
+                    // value={noteBgColor}
                     name="colorPick"
                 >
                     {colorPalette.map((color, index) => {
@@ -46,7 +46,6 @@ const FormColor = () => {
                             <FormControlLabel
                                 key={index}
                                 value={color}
-                                onChange={handleColorChange}
                                 className={classes.input}
                                 style={{ background: color }}
                                 control={
