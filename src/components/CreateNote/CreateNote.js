@@ -6,7 +6,7 @@ import { Card, InputBase, Button } from "@material-ui/core";
 import Footer from "../Footer/Footer";
 //Import hooks
 import useCreateNote from "../../hooks/useCreateNote";
-import { createID } from "../../utils/utilities";
+import useCreateID from "../../hooks/useCreateID";
 
 const CreateNote = ({ notes, setNotes }) => {
     const classes = useStyles();
@@ -18,14 +18,14 @@ const CreateNote = ({ notes, setNotes }) => {
 
     const [noteID, setNoteID] = useState("");
 
-    console.log(noteID);
-
     const { newNote } = useCreateNote({ id: noteID, content: input });
+
+    const { newID } = useCreateID(notes);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInput({ ...input, [name]: value });
-        setNoteID(createID());
+        setNoteID(newID);
     };
 
     const handleClick = () => {
