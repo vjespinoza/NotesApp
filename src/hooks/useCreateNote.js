@@ -1,21 +1,17 @@
-import {useState} from 'react'
 
-const noteModel = {
-    id: null,
-    content: {title: '', body: ''},
-    alert: {state: false, time: null, date: null},
-    color: null,
-    tags: [],
-    created: null
-}
+const useCreateNote = (obj) => {
+    const note =  {
+        id: null,
+        content: {title: '', body: ''},
+        alert: {state: false, time: null, date: null},
+        color: null,
+        tags: [],
+        created: null
+    }
 
-const useCreateNote = (key, value) => {
-    
-    const [note, setNote] = useState(noteModel)
-
-    const newNote = noteModel[key] = value;
-
-    return {note};
+    const newNote = {...note, ...obj}
+        
+    return {newNote};
 }
  
 export default useCreateNote;
