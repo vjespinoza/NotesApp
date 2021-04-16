@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 //iImport styles
 import useStyles from "./style";
 //Import Material UI components & icons
@@ -9,9 +9,40 @@ import {
     Typography,
     Button,
 } from "@material-ui/core";
+//Import hooks
+import useCreateNote from "../../hooks/useCreateNote";
 
 const FormReminder = () => {
     const classes = useStyles();
+
+    const [input, setInput] = useState({
+        time: "",
+        date: "",
+    });
+
+    const [active, setActive] = useState(false);
+
+    const { newNote } = useCreateNote({
+        alert: {
+            state: active,
+            time: input.time,
+            date: input.date,
+        },
+    });
+
+    const handleChange = (e) => {
+        const { type, value } = e.target;
+        setInput({ ...input, [type]: value });
+
+        if ([type] !== "") {
+            setActive(true);
+        }
+    };
+
+    const handleClick = () => {
+        setInput({ time: "", date: "" });
+        setActive(false);
+    };
 
     return (
         <Card className={classes.reminderForm}>
@@ -19,12 +50,24 @@ const FormReminder = () => {
                 Reminder:
             </Typography>
             <FormControl>
-                <Input className={classes.input} type="date"></Input>
+                <Input
+                    className={classes.input}
+                    type="date"
+                    onChange={handleChange}
+                    value={input.date}
+                ></Input>
             </FormControl>
             <FormControl>
-                <Input className={classes.input} type="time"></Input>
+                <Input
+                    className={classes.input}
+                    type="time"
+                    onChange={handleChange}
+                    value={input.time}
+                ></Input>
             </FormControl>
-            <Button className={classes.confirmReminder}>Confirm</Button>
+            <Button onClick={handleClick} className={classes.confirmReminder}>
+                Confirm
+            </Button>
         </Card>
     );
 };

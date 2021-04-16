@@ -6,10 +6,13 @@ import useStyles from "./style";
 const NotesList = ({ notes }) => {
     const classes = useStyles();
 
+    //Sorts most recent note first
+    const sortedNotes = notes.sort((a, b) => b.created - a.created);
+
     if (notes.length > 0) {
         return (
             <Container className={classes.notesListContainer}>
-                {notes.map((note) => {
+                {sortedNotes.map((note) => {
                     return (
                         <Note
                             key={note.id}

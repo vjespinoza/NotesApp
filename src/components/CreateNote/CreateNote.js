@@ -4,6 +4,7 @@ import useStyles from "./style";
 import { Card, InputBase, Button } from "@material-ui/core";
 //Components
 import Footer from "../Footer/Footer";
+import FormReminder from "../FormReminder/FormReminder";
 //Import hooks
 import useCreateNote from "../../hooks/useCreateNote";
 import useCreateID from "../../hooks/useCreateID";
@@ -18,7 +19,7 @@ const CreateNote = ({ notes, setNotes }) => {
 
     const [noteID, setNoteID] = useState("");
 
-    const { newNote } = useCreateNote({ id: noteID, content: input });
+    const { note, setNote } = useCreateNote();
 
     const { newID } = useCreateID(notes);
 
@@ -26,11 +27,17 @@ const CreateNote = ({ notes, setNotes }) => {
         const { name, value } = e.target;
         setInput({ ...input, [name]: value });
         setNoteID(newID);
+        setNote({
+            ...note,
+            id: noteID,
+            content: input,
+            created: Date.now(),
+        });
     };
 
     const handleClick = () => {
         if (input.title !== "" || input.body !== "") {
-            setNotes([...notes, newNote]);
+            setNotes([...notes, note]);
             setInput({ title: "", body: "" });
             setNoteID("");
         }
@@ -70,6 +77,7 @@ const CreateNote = ({ notes, setNotes }) => {
                     Add
                 </Button>
             </div>
+            {/* <FormReminder /> */}
         </Card>
     );
 };

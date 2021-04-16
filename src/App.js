@@ -6,17 +6,20 @@ import NavBar from "./components/NavBar/NavBar";
 import Sidebar from "./components/SideBar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
 
+//Import custom hook
+import { NoteDataProvider } from "./hooks/useCreateNote";
+
 function App() {
     const classes = useStyles();
 
     const [notes, setNotes] = useState([]);
 
     return (
-        <div className={classes.app}>
+        <NoteDataProvider className={classes.app}>
             <NavBar />
             <Sidebar />
             <Dashboard notes={notes} setNotes={setNotes} />
-        </div>
+        </NoteDataProvider>
     );
 }
 
