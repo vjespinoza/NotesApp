@@ -22,13 +22,7 @@ const FormReminder = () => {
 
     const [active, setActive] = useState(false);
 
-    const { newNote } = useCreateNote({
-        alert: {
-            state: active,
-            time: input.time,
-            date: input.date,
-        },
-    });
+    const { note, setNote } = useCreateNote();
 
     const handleChange = (e) => {
         const { type, value } = e.target;
@@ -37,6 +31,15 @@ const FormReminder = () => {
         if ([type] !== "") {
             setActive(true);
         }
+
+        setNote({
+            ...note,
+            alert: {
+                state: active,
+                time: input.time,
+                date: input.date,
+            },
+        });
     };
 
     const handleClick = () => {

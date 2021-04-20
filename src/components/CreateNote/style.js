@@ -16,7 +16,7 @@ const useStyles = makeStyles({
                 display: "flex",
             },
         },
-        position: "relative",
+        // position: "relative",
     },
     noteTitle: {
         // display: "none",

@@ -4,7 +4,6 @@ import useStyles from "./style";
 import { Card, InputBase, Button } from "@material-ui/core";
 //Components
 import Footer from "../Footer/Footer";
-import FormReminder from "../FormReminder/FormReminder";
 //Import hooks
 import useCreateNote from "../../hooks/useCreateNote";
 import useCreateID from "../../hooks/useCreateID";
@@ -77,7 +76,6 @@ const CreateNote = ({ notes, setNotes }) => {
                     Add
                 </Button>
             </div>
-            {/* <FormReminder /> */}
         </Card>
     );
 };
