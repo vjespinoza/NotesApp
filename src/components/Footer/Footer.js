@@ -7,64 +7,13 @@ import {
     ListItem,
     ListItemIcon,
 } from "@material-ui/core";
-//Material UI icons
-import {
-    NotificationsNone,
-    PaletteOutlined,
-    MoveToInboxOutlined,
-    LabelOutlined,
-    MoreVertOutlined,
-} from "@material-ui/icons";
-//Import components
-import FormReminder from "../FormReminder/FormReminder";
-import FormColor from "../FormColorPick/FormColor";
-import FormTag from "../FormTag/FormTag";
+//Import custom hook
+import useFormView from "../../hooks/useFormView";
 
 const Footer = () => {
     const classes = useStyles();
 
-    const [footerIcons, setFooterIcons] = useState([
-        {
-            name: "alert",
-            active: false,
-            form: <FormReminder />,
-            icon: <NotificationsNone />,
-        },
-        {
-            name: "color",
-            active: false,
-            form: <FormColor />,
-            icon: <PaletteOutlined />,
-        },
-        {
-            name: "archive",
-            active: false,
-            form: null,
-            icon: <MoveToInboxOutlined />,
-        },
-        {
-            name: "tag",
-            active: false,
-            form: <FormTag />,
-            icon: <LabelOutlined />,
-        },
-        { name: "menu", active: false, form: null, icon: <MoreVertOutlined /> },
-    ]);
-
-    const openForm = (name) => {
-        const icons = footerIcons;
-
-        const update = icons.map((item) => {
-            const y =
-                item.name === name
-                    ? (item.active = true)
-                    : (item.active = false);
-
-            return { ...item, ...y };
-        });
-
-        setFooterIcons(update);
-    };
+    const { footerIcons, openForm } = useFormView();
 
     return (
         <div className={classes.footer}>

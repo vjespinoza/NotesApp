@@ -9,8 +9,9 @@ const useStyles = makeStyles({
         padding: "0.8rem",
         position: "absolute",
         zIndex: 10,
-        top: "calc(100% - 70px)",
-        left: "4rem",
+        top: "100%",
+        left: "3.5rem",
+        background: "purple",
     },
     formTitle: {
         textAlign: "left",
