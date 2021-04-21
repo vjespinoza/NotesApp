@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //Material UI icons
 import {
     NotificationsNone,
@@ -6,14 +6,14 @@ import {
     MoveToInboxOutlined,
     LabelOutlined,
     MoreVertOutlined,
+    TrainRounded,
 } from "@material-ui/icons";
 //Import components
 import FormReminder from "../components/FormReminder/FormReminder";
 import FormColor from "../components/FormColorPick/FormColor";
 import FormTag from "../components/FormTag/FormTag";
-import FormTags from "../components/FormTag/FormTag";
 
-const useFormView = () => {
+const useFormView = (domTarget) => {
     const [footerIcons, setFooterIcons] = useState([
         {
             name: "alert",
@@ -57,11 +57,32 @@ const useFormView = () => {
         setFooterIcons(update);
     };
 
-    // const clickOutside = (e) => {
-    //     console.log(e.target);
-    // };
+    const closeForm = () => {
+        const icons = footerIcons;
 
-    // document.addEventListener("mousedown", clickOutside);
+        const update = icons.map((item) => {
+            const active = item.active === true ? item : !item;
+            item.active = false;
+
+            return { ...item, ...active };
+        });
+
+        setFooterIcons(update);
+    };
+
+    useEffect(() => {
+        if (domTarget.current != null) {
+            const clickOutside = (e) => {
+                if (!domTarget.current.contains(e.target)) {
+                    closeForm();
+                }
+            };
+            document.addEventListener("mousedown", clickOutside);
+            console.log("is NOT null", domTarget.current);
+        } else {
+            console.log("is null", domTarget.current);
+        }
+    }, [footerIcons]);
 
     return { footerIcons, setFooterIcons, openForm };
 };
