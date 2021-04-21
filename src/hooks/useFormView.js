@@ -13,7 +13,8 @@ import FormReminder from "../components/FormReminder/FormReminder";
 import FormColor from "../components/FormColorPick/FormColor";
 import FormTag from "../components/FormTag/FormTag";
 
-const useFormView = (domTarget) => {
+const useFormView = () => {
+    const [toggleActive, setToggleActive] = useState(true);
     const [footerIcons, setFooterIcons] = useState([
         {
             name: "alert",
@@ -42,13 +43,15 @@ const useFormView = (domTarget) => {
         { name: "menu", active: false, form: null, icon: <MoreVertOutlined /> },
     ]);
 
-    const openForm = (name) => {
+    const toggleForm = (name) => {
         const icons = footerIcons;
+
+        setToggleActive((toggleActive) => !toggleActive);
 
         const update = icons.map((item) => {
             const active =
                 item.name === name
-                    ? (item.active = true)
+                    ? (item.active = toggleActive)
                     : (item.active = false);
 
             return { ...item, ...active };
@@ -57,35 +60,7 @@ const useFormView = (domTarget) => {
         setFooterIcons(update);
     };
 
-    const closeForm = () => {
-        const icons = footerIcons;
-
-        const update = icons.map((item) => {
-            const active = item.active === true ? item : !item;
-            item.active = false;
-
-            return { ...item, ...active };
-        });
-
-        setFooterIcons(update);
-    };
-
-    // useEffect(() => {
-    //     if (domTarget.current != null) {
-    //         const clickOutside = (e) => {
-    //             if (!domTarget.current.contains(e.target)) {
-    //                 closeForm();
-    //             }
-    //         };
-    //         document.addEventListener("mousedown", clickOutside);
-    //         console.log("is NOT null", domTarget.current);
-    //         return;
-    //     }
-    // }, [footerIcons]);
-
-    // console.log(domTarget);
-
-    return { footerIcons, setFooterIcons, openForm };
+    return { footerIcons, setFooterIcons, toggleForm };
 };
 
 export default useFormView;

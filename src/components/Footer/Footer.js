@@ -12,7 +12,7 @@ import useFormView from "../../hooks/useFormView";
 const Footer = () => {
     const classes = useStyles();
 
-    const { footerIcons, openForm } = useFormView();
+    const { footerIcons, toggleForm } = useFormView();
 
     return (
         <div className={classes.footer}>
@@ -25,7 +25,8 @@ const Footer = () => {
                             className={classes.iconItem}
                             key={index}
                             name={icon.name}
-                            onClick={() => openForm(icon.name)}
+                            onClick={() => toggleForm(icon.name)}
+                            // onClick={(e) => toggleForm(e.currentTarget)}
                         >
                             <ListItemIcon className={classes.icon}>
                                 {icon.icon}
@@ -37,7 +38,7 @@ const Footer = () => {
             {footerIcons.map((form) => {
                 return (
                     <div name={form.name} key={form.name}>
-                        {form.active === true ? form.form : <></>}
+                        {form.active && form.form}
                     </div>
                 );
             })}
