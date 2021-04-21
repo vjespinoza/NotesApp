@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import useStyles from "./style";
 //Material UI elements
 import {
@@ -13,11 +12,7 @@ import useFormView from "../../hooks/useFormView";
 const Footer = () => {
     const classes = useStyles();
 
-    const domTarget = useRef(null);
-
-    const { footerIcons, openForm } = useFormView(domTarget);
-
-    console.log(footerIcons);
+    const { footerIcons, openForm } = useFormView();
 
     return (
         <div className={classes.footer}>
@@ -41,11 +36,7 @@ const Footer = () => {
             </CardActionArea>
             {footerIcons.map((form) => {
                 return (
-                    <div
-                        ref={form.active === true ? domTarget : null}
-                        name={form.name}
-                        key={form.name}
-                    >
+                    <div name={form.name} key={form.name}>
                         {form.active === true ? form.form : <></>}
                     </div>
                 );

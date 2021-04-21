@@ -70,19 +70,20 @@ const useFormView = (domTarget) => {
         setFooterIcons(update);
     };
 
-    useEffect(() => {
-        if (domTarget.current != null) {
-            const clickOutside = (e) => {
-                if (!domTarget.current.contains(e.target)) {
-                    closeForm();
-                }
-            };
-            document.addEventListener("mousedown", clickOutside);
-            console.log("is NOT null", domTarget.current);
-        } else {
-            console.log("is null", domTarget.current);
-        }
-    }, [footerIcons]);
+    // useEffect(() => {
+    //     if (domTarget.current != null) {
+    //         const clickOutside = (e) => {
+    //             if (!domTarget.current.contains(e.target)) {
+    //                 closeForm();
+    //             }
+    //         };
+    //         document.addEventListener("mousedown", clickOutside);
+    //         console.log("is NOT null", domTarget.current);
+    //         return;
+    //     }
+    // }, [footerIcons]);
+
+    // console.log(domTarget);
 
     return { footerIcons, setFooterIcons, openForm };
 };
