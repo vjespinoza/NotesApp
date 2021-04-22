@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useStyles from "./style";
 //Material UI elements
 import { Card, InputBase, Button } from "@material-ui/core";
@@ -22,16 +22,19 @@ const CreateNote = ({ notes, setNotes }) => {
 
     const { newID } = useCreateID(notes);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setInput({ ...input, [name]: value });
-        setNoteID(newID);
+    useEffect(() => {
         setNote({
             ...note,
             id: noteID,
             content: input,
             created: Date.now(),
         });
+    }, [input]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInput({ ...input, [name]: value });
+        setNoteID(newID);
     };
 
     const handleClick = () => {
