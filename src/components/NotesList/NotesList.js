@@ -10,8 +10,6 @@ const NotesList = ({ notes }) => {
     //Sorts most recent note first
     const sortedNotes = notes.sort((a, b) => b.created - a.created);
 
-    console.log(notes.length);
-
     useEffect(() => {
         if (notes.length >= 1) {
             let magicGrid = new MagicGrid({

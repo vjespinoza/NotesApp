@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 //Material UI icons
 import {
     NotificationsNone,
@@ -14,7 +14,6 @@ import FormColor from "../components/FormColorPick/FormColor";
 import FormTag from "../components/FormTag/FormTag";
 
 const useFormView = () => {
-    const [toggleActive, setToggleActive] = useState(true);
     const [footerIcons, setFooterIcons] = useState([
         {
             name: "alert",
@@ -43,15 +42,14 @@ const useFormView = () => {
         { name: "menu", active: false, form: null, icon: <MoreVertOutlined /> },
     ]);
 
-    const toggleForm = (name) => {
+    //Open form handler
+    const openForm = (name) => {
         const icons = footerIcons;
-
-        setToggleActive((toggleActive) => !toggleActive);
 
         const update = icons.map((item) => {
             const active =
                 item.name === name
-                    ? (item.active = toggleActive)
+                    ? (item.active = true)
                     : (item.active = false);
 
             return { ...item, ...active };
@@ -60,7 +58,21 @@ const useFormView = () => {
         setFooterIcons(update);
     };
 
-    return { footerIcons, setFooterIcons, toggleForm };
+    //Close form handler (on useClickOutside)
+    const closeForm = (name) => {
+        const icons = footerIcons;
+
+        const update = icons.map((item) => {
+            const active = item.name === name && (item.active = false);
+
+            return { ...item, ...active };
+        });
+
+        setFooterIcons(update);
+        console.log("I close form", footerIcons);
+    };
+
+    return { footerIcons, setFooterIcons, openForm, closeForm };
 };
 
 export default useFormView;
